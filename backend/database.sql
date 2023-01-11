@@ -1,3 +1,5 @@
+CREATE DATABASE hackaton3;
+USE hackaton3;
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS vehicle;
 DROP TABLE IF EXISTS reservation;
