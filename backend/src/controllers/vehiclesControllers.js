@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.vehicles
+  models.vehicle
     .findAll()
     .then(([results]) => {
       res.send(results);
@@ -15,7 +15,7 @@ const browse = (req, res) => {
 const read = (req, res) => {
   const { id } = req.params;
 
-  models.vehicles
+  models.vehicle
     .find(id)
     .then(([results]) => {
       if (results[0]) res.send(results[0]);
@@ -29,9 +29,8 @@ const read = (req, res) => {
 
 const add = (req, res) => {
   const vehicles = req.body;
-  vehicles.user_id = req.payloads.sub;
-
-  models.vehicles
+  // vehicles.id = req.payloads.sub;
+  models.vehicle
     .insert(vehicles)
     .then(([result]) => {
       res.location(`/api/vehicles/${result.insertId}`).sendStatus(201);
@@ -46,7 +45,7 @@ const edit = (req, res) => {
   const vehicles = req.body;
   vehicles.id = req.params.id;
 
-  models.vehicles
+  models.vehicle
     .update(vehicles)
     .then(([result]) => {
       if (result.affectedRows === 0) res.sendStatus(404);
@@ -60,7 +59,7 @@ const edit = (req, res) => {
 
 const destroy = (req, res) => {
   const { id } = req.params;
-  models.vehicles
+  models.vehicle
     .delete(id)
     .then(([result]) => {
       if (result.affectedRows === 0) res.sendStatus(404);
