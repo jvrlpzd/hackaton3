@@ -7,12 +7,12 @@ function Nav() {
   const Links = [
     { name: "VEHICLES", link: "/vehicles" },
     { name: "MY HISTORY", link: "/history" },
-    { name: "MY PROFIL", link: "/" },
-    { name: "OUR SERVICES", link: "/" },
+    { name: "MY PROFIL", link: "/profil" },
+    { name: "OUR SERVICES", link: "/services" },
   ];
   const [open, setOpen] = useState(false);
   return (
-    <div className="shadow-md w-full">
+    <div className="shadow-md w-full z-20">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
         <div
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
@@ -32,7 +32,7 @@ function Nav() {
         </button>
 
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-1 left-0  w-full md:w-auto md:pl-0 pl-9 transition-all duration-300 ease-in ${
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-20 left-0  w-full md:w-auto md:pl-0 pl-9 transition-all duration-300 ease-in ${
             open ? "top-16 " : "top-[-490px]"
           }`}
         >

@@ -17,28 +17,28 @@ function CardsHistory() {
         <img src={car} alt="car" className="h-56" />
       </div>
       <div className="grid overflow-hidden grid-cols-3 grid-rows-2 gap-5">
-        <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={câble} alt="card" />
+        <div className="flex flex-col md:flex-row items-center justify-center my-6">
+          <img className="h-6 w-6 mr-4 mb-4" src={câble} alt="card" />
           <p>Electrique</p>
         </div>
-        <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={valises} alt="card" />
+        <div className="flex flex-col md:flex-row items-center justify-center my-6">
+          <img className="h-6 w-6 mr-4 mb-4" src={valises} alt="card" />
           <p>Nb de bagages</p>
         </div>
-        <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={clim} alt="card" />
+        <div className="flex flex-col md:flex-row items-center justify-center my-6">
+          <img className="h-6 w-6 mr-4 mb-4" src={clim} alt="card" />
           <p>Climatisation</p>
         </div>
         <div className="flex flex-row items-center justify-center my-6">
           <img className="h-6 w-6 mr-4" src={essence} alt="card" />
           <p>Essence</p>
         </div>
-        <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={passagers} alt="card" />
+        <div className="flex flex-col md:flex-row items-center justify-center my-6">
+          <img className="h-6 w-6 mr-4 mb-4" src={passagers} alt="card" />
           <p>Nb de passagers</p>
         </div>
-        <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={portes} alt="card" />
+        <div className="flex flex-col md:flex-row items-center justify-center my-6">
+          <img className="h-6 w-6 mr-4 mb-4" src={portes} alt="card" />
           <p>Nb de portes</p>
         </div>
       </div>
