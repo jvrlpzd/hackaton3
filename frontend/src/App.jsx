@@ -5,6 +5,7 @@ import Home from "./Home";
 import SignUp from "./pages/SignUp";
 import MyHistory from "./pages/MyHistory";
 import Nav from "./components/navbar/Nav";
+import AuthentificationPage from "./components/AuthentificationPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/history" element={<MyHistory />} />
+        <Route path="/login" element={<AuthentificationPage />} />
       </Routes>
     </BrowserRouter>
   );

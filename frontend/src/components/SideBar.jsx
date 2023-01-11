@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-syntax */
+/* eslint-disable */
 import React, { useState } from "react";
 
 function SideBar() {
