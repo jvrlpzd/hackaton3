@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 
 function SideBar() {
@@ -46,7 +47,7 @@ function SideBar() {
       </select>
       <select
         onChange={(e) => setType(e.target.value)}
-        className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+        className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 text-center bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
         <option>-Type-</option>
         <option value="Citadine" className=" sm:text-sm md:text-lg">
@@ -67,7 +68,7 @@ function SideBar() {
       </select>
       <select
         onChange={(e) => setMileage(e.target.value)}
-        className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+        className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white text-center border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
         <option className=" sm:text-sm md:text-lg">-Mileage-</option>
         <option value={1} className=" sm:text-sm md:text-lg">
@@ -82,7 +83,7 @@ function SideBar() {
       </select>
       <select
         onChange={(e) => setFuel(e.target.value)}
-        className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+        className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white text-center border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
         <option>-Carburant-</option>
         <option value="Diesel" className=" sm:text-sm md:text-lg">
@@ -95,13 +96,6 @@ function SideBar() {
           Electrique
         </option>
       </select>
-
-      <button
-        onClick={() => console.log(brand, mileage, fuel, type)}
-        type="button"
-      >
-        Test
-      </button>
     </div>
   );
 }
