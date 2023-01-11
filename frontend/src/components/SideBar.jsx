@@ -22,6 +22,8 @@ function SideBar() {
 
   const [brand, setBrand] = useState("");
 
+  const [type, setType] = useState("");
+
   const [mileage, setMileage] = useState("");
 
   const [fuel, setFuel] = useState("");
@@ -41,6 +43,27 @@ function SideBar() {
             {brands.name}
           </option>
         ))}
+      </select>
+      <select
+        onChange={(e) => setType(e.target.value)}
+        className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+      >
+        <option>-Type-</option>
+        <option value="Citadine" className=" sm:text-sm md:text-lg">
+          Citadine
+        </option>
+        <option value="SUV" className=" sm:text-sm md:text-lg">
+          SUV
+        </option>
+        <option value="Sedan" className=" sm:text-sm md:text-lg">
+          Sedan
+        </option>
+        <option value="Coupé" className=" sm:text-sm md:text-lg">
+          Coupé
+        </option>
+        <option value="Break" className=" sm:text-sm md:text-lg">
+          Break
+        </option>
       </select>
       <select
         onChange={(e) => setMileage(e.target.value)}
@@ -73,7 +96,10 @@ function SideBar() {
         </option>
       </select>
 
-      <button onClick={() => console.log(brand, mileage, fuel)} type="button">
+      <button
+        onClick={() => console.log(brand, mileage, fuel, type)}
+        type="button"
+      >
         Test
       </button>
     </div>
