@@ -14,25 +14,22 @@ function FormReservation() {
               <div className="mb-5">
                 <select
                   onChange={(e) => setCity(e.target.value)}
-                  classNameName="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none  focus:border-indigo-600"
+                  className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none  focus:border-indigo-600"
                 >
                   <option>-City-</option>
-                  <option value="Paris" classNameName=" sm:text-sm md:text-lg">
+                  <option value="Paris" className=" sm:text-sm md:text-lg">
                     Paris
                   </option>
-                  <option value="Lille" classNameName=" sm:text-sm md:text-lg">
+                  <option value="Lille" className=" sm:text-sm md:text-lg">
                     Lille
                   </option>
-                  <option value="Lyon" classNameName=" sm:text-sm md:text-lg">
+                  <option value="Lyon" className=" sm:text-sm md:text-lg">
                     Lyon
                   </option>
-                  <option
-                    value="Bordeaux"
-                    classNameName=" sm:text-sm md:text-lg"
-                  >
+                  <option value="Bordeaux" className=" sm:text-sm md:text-lg">
                     Bordeaux
                   </option>
-                  <option value="Monaco" classNameName=" sm:text-sm md:text-lg">
+                  <option value="Monaco" className=" sm:text-sm md:text-lg">
                     Monaco
                   </option>
                 </select>
