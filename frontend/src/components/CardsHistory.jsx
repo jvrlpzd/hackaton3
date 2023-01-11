@@ -3,7 +3,7 @@ import car from "../assets/car.png";
 import câble from "../assets/HistoryPage/câble.png";
 import valises from "../assets/HistoryPage/valises.png";
 import clim from "../assets/HistoryPage/clim.png";
-import electric from "../assets/HistoryPage/electric.png";
+import essence from "../assets/HistoryPage/essence.png";
 import passagers from "../assets/HistoryPage/passagers.png";
 import portes from "../assets/HistoryPage/portes.png";
 
@@ -29,8 +29,8 @@ function CardsHistory() {
           <img className="h-6 w-6 mr-4 mb-4" src={clim} alt="card" />
           <p>Climatisation</p>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4 mb-4" src={electric} alt="card" />
+        <div className="flex flex-row items-center justify-center my-6">
+          <img className="h-6 w-6 mr-4" src={essence} alt="card" />
           <p>Essence</p>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center my-6">

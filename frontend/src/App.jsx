@@ -8,21 +8,24 @@ import Nav from "./components/navbar/Nav";
 import AuthentificationPage from "./components/AuthentificationPage";
 import MyProfile from "./pages/MyProfile";
 import OurServices from "./pages/OurServices";
+import { CarContextProvider } from "./context/carContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/vehicles" element={<Vehicles />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/history" element={<MyHistory />} />
-        <Route path="/login" element={<AuthentificationPage />} />
-        <Route path="/profil" element={<MyProfile />} />
-        <Route path="/services" element={<OurServices />} />
-      </Routes>
-    </BrowserRouter>
+    <CarContextProvider>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/history" element={<MyHistory />} />
+          <Route path="/login" element={<AuthentificationPage />} />
+          <Route path="/profil" element={<MyProfile />} />
+          <Route path="/services" element={<OurServices />} />
+        </Routes>
+      </BrowserRouter>
+    </CarContextProvider>
   );
 }
 
