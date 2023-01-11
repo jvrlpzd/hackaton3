@@ -22,9 +22,9 @@ function Nav() {
           <a href="/">Logo</a>
         </div>
         <button
+          type="button"
           onClick={() => setOpen(!open)}
           className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
-          type="button"
         >
           <img className="h-8" src={iconMenu} alt="" />
         </button>
