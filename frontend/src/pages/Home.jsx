@@ -9,6 +9,10 @@ export default function Home() {
 
       <Counter />
 
+      <div>
+        <h1 className="text-3xl font-bold bg-white">YOLOOOO</h1>
+      </div>
+
       <p>
         Edit <code>App.jsx</code> and save to test HMR updates.
       </p>
