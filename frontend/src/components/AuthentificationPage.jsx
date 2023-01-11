@@ -28,7 +28,7 @@ function AuthentificationPage() {
         onSubmit={handleSubmit}
         className=" flex flex-col items-center justify-center  "
       >
-        <h1 className=" items-center content-center justify-center text-3xl mb-10 mt-52">
+        <h1 className=" items-center content-center justify-center text-3xl mb-16 md:mb-24 mt-44">
           CONNECTEZ-VOUS
         </h1>
 
@@ -72,7 +72,7 @@ function AuthentificationPage() {
         </p>
         <button
           type="submit"
-          className="bg-[#15133C] text-white m-3 py-1 px-4 rounded-lg shadow-lg h-10 w-32 md:h-14 md:w-44 md:text-lg hover:shadow hover:bg-[#FFFFFF] hover:text-[#15133C] hover:border hover:border-[#15133C]"
+          className="bg-[#15133C] mt-10 md:mt-2 text-white m-3 py-1 px-4 rounded-lg shadow-lg h-10 w-32 md:h-14 md:w-44 md:text-lg hover:shadow hover:bg-[#FFFFFF] hover:text-[#15133C] hover:border hover:border-[#15133C]"
         >
           Connexion
         </button>
