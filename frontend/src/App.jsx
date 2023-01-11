@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Vehicles from "./pages/Vehicles";
 import "./App.css";
 import Home from "./Home";
+import MyHistory from "./pages/MyHistory";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/vehicles" element={<Vehicles />} />
+        <Route path="/history" element={<MyHistory />} />
       </Routes>
     </BrowserRouter>
   );
