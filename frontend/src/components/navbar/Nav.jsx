@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import iconMenu from "../menu.png";
+import iconMenu from "../../assets/menu.png";
 
 function Nav() {
   const Links = [
