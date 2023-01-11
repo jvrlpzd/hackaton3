@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
 import iconMenu from "../../assets/menu.png";
 
 function Nav() {
   const Links = [
     { name: "VEHICLES", link: "/vehicles" },
-    { name: "MY HISTORY", link: "/" },
+    { name: "MY HISTORY", link: "/history" },
     { name: "MY PROFIL", link: "/" },
     { name: "OUR SERVICES", link: "/" },
   ];
