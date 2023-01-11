@@ -7,8 +7,8 @@ function Nav() {
   const Links = [
     { name: "VEHICLES", link: "/vehicles" },
     { name: "MY HISTORY", link: "/history" },
-    { name: "MY PROFIL", link: "/" },
-    { name: "OUR SERVICES", link: "/" },
+    { name: "MY PROFIL", link: "/profil" },
+    { name: "OUR SERVICES", link: "/services" },
   ];
   const [open, setOpen] = useState(false);
   return (
