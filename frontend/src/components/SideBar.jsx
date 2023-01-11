@@ -32,7 +32,7 @@ function SideBar() {
   const [fuel, setFuel] = useState("");
 
   return (
-    <div className="flex justify-center border text-center border-black ">
+    <div className="flex justify-center border text-center overflow-x-auto border-black ">
       <select
         onChange={(e) => setBrand(e.target.value)}
         className=" w-auto md:my-2 md:mx-2 text-center p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
