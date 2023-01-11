@@ -29,6 +29,9 @@ function FormReservation() {
                     className="w-auto md:px-6 md:text-lg md:mx-2 text-gray-500 bg-white border rounded-md shadow-sm outline-none  focus:border-indigo-600"
                   >
                     <option className="sm:text-sm md:text-lg">-City-</option>
+                    <option value="All" className=" sm:text-sm md:text-lg">
+                      All
+                    </option>
                     <option value="Paris" className=" sm:text-sm md:text-lg">
                       Paris
                     </option>
