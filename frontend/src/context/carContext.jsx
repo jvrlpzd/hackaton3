@@ -8,10 +8,14 @@ export default CarContext;
 
 export function CarContextProvider({ children }) {
   const [cars, setCars] = useState([]);
+  const [city, setCity] = useState("");
+  const [brand, setBrand] = useState("");
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
-    <CarContext.Provider value={{ cars, setCars }}>
+    <CarContext.Provider
+      value={{ cars, setCars, city, setCity, brand, setBrand }}
+    >
       {children}
     </CarContext.Provider>
   );

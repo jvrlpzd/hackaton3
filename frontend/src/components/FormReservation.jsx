@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from "react";
+import CardsAll from "./CardsAll";
 import SideBar from "./SideBar";
+import { useCarContext } from "../context/carContext";
 
 function FormReservation() {
-  const [city, setCity] = useState("");
-
   const [isTrue, setIsTrue] = useState(false);
+  const { setCity } = useCarContext();
 
   function showSlideBar() {
     setIsTrue(!isTrue);
@@ -14,8 +15,8 @@ function FormReservation() {
 
   return (
     <div>
-      <div className="mt-[-100px] mx-auto my-4 text-center py-3 md:mt-[-280px] z-10 flex items-center shadow-sm bg-white  justify-center rounded-xl p-12">
-        <div className="mx-auto my-4  w-full md:max-w-[850px] bg-white">
+      <div className="mt-[-100px] mx-auto my-4 text-center py-3 md:mt-[-500px] md:pb-4 z-10 flex items-center shadow-sm bg-white  justify-center ">
+        <div className="mx-auto my-4 md:pb-5 pb-1  w-full md:max-w-[850px] rounded-xl bg-white">
           <form
             type="submit"
             action="https://formbold.com/s/FORM_ID"
@@ -104,6 +105,7 @@ function FormReservation() {
       {isTrue ? (
         <div>
           <SideBar />
+          <CardsAll />
         </div>
       ) : (
         ""
