@@ -12,6 +12,8 @@ function CardsAll() {
     setBookedReservations,
     dateAller,
     dateRetour,
+    type,
+    fuel,
   } = useCarContext();
   const [carsOut, setCarsOut] = useState([]);
 
@@ -59,6 +61,8 @@ function CardsAll() {
       {carsOut
         .filter((car) => city === "" || city === car.city)
         .filter((car) => filterCars === "" || filterCars === car.brand)
+        .filter((car) => type === "" || type === car.car_type)
+        .filter((car) => fuel === "" || fuel === car.fuel)
         .map((car) => (
           <Card car={car} />
         ))}

@@ -69,7 +69,7 @@ VALUES
   (
     'Mercedes-Benz',
     'C-Class Coupé',
-    'Coupe',
+    'Coupé',
     '2022-12-25',
     3091,
     "Gasoline",
@@ -124,7 +124,7 @@ VALUES
   (
     'Nissan',
     'Z',
-    'Coupe',
+    'Coupé',
     '2020-05-18',
     3091,
     "Gasoline",
@@ -177,7 +177,7 @@ VALUES
   (
     'Nissan',
     'Z',
-    'Coupe',
+    'Coupé',
     '2020-05-18',
     3091,
     "Gasoline",
