@@ -1,33 +1,25 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/self-closing-comp */
-import React, { useEffect } from "react";
-import { useCarContext } from "../../context/carContext";
-
-import EditVehicles from "./EditVehicles";
+import React, { useEffect, useState } from "react";
+import ItemVehicle from "./ItemVehicle";
 
 function AdminHome() {
-  const {
-    cars,
-    setCars,
-
-    editPostModal,
-    setEditPostModal,
-  } = useCarContext();
-
-  const handleEditPostModal = () => {
-    setEditPostModal(!editPostModal);
-  };
+  const [cars, setCars] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/vehicles")
       .then((response) => response.json())
-      .then(
-        (result) => {
-          setCars(result);
-        },
-        [cars]
-      );
+      .then((result) => {
+        setCars(result);
+      }, []);
   });
+
+  const deleteFromList = (id) => {
+    // recupérer l'index de la voiture a supprimer
+    // slice la voiture correspondant à l'index
+    // re-render le composant pour afficher la liste de voitures modifiée
+  };
+
   return (
     <div>
       <div className=" flex-wrap bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-xl">
@@ -107,60 +99,11 @@ function AdminHome() {
                       </td>
                     </tr>
                   </thead>
-                  {cars.map((car) => (
-                    <tbody key={car.id}>
-                      <tr className="text-gray-400">
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
-                          {car.brand}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
-                          {car.model}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">
-                          {car.car_type}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">
-                          {car.construction_date}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-                          {car.mileage}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-                          {car.fuel}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-                          {car.technical_sheet}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-                          {car.city}
-                        </th>
-                        <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-                          {car.needs_repairing}
-                        </th>
-                        <div>
-                          <div className=" w-28 rounded-md shadow-lg mb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <button
-                              onClick={() => handleEditPostModal()}
-                              className="text-black p-2 flex"
-                              type="button"
-                            >
-                              Modifier
-                            </button>
-
-                            {editPostModal ? (
-                              <EditVehicles
-                                editPostModal={editPostModal}
-                                setEditPostModal={setEditPostModal}
-                                handleEditPostModal={handleEditPostModal}
-                              />
-                            ) : (
-                              ""
-                            )}
-                          </div>
-                        </div>
-                      </tr>
-                    </tbody>
-                  ))}
+                  <tbody>
+                    {cars.map((car) => (
+                      <ItemVehicle key={car.id} car={car} />
+                    ))}
+                  </tbody>
                 </table>
               </div>
             </div>
