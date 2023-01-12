@@ -13,6 +13,7 @@ export function CarContextProvider({ children }) {
   const [reservation, setReservation] = useState([]);
   const [bookedReservations, setBookedReservations] = useState([]);
 
+  const [filterCars, setFilterCars] = useState("");
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <CarContext.Provider
@@ -27,6 +28,8 @@ export function CarContextProvider({ children }) {
         setReservation,
         bookedReservations,
         setBookedReservations,
+        filterCars,
+        setFilterCars,
       }}
     >
       {children}
