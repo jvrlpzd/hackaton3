@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import iconMenu from "../../assets/menu.png";
+import logo from "../../assets/logo.png";
 import LogOut from "../LogOut";
 
 function Nav() {
@@ -22,7 +24,9 @@ function Nav() {
           <span className="text-3xl text-indigo-600 mr-1 pt-2">
             <ion-icon name="logo-ionic" />
           </span>
-          <a href="/">Logo</a>
+          <Link to="/">
+            <img className="w-32 h-16" src={logo} alt="" />
+          </Link>
         </div>
         <button
           type="button"
