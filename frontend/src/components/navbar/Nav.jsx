@@ -2,10 +2,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react";
 import iconMenu from "../../assets/menu.png";
+import LogOut from "../LogOut";
 
 function Nav() {
   const Links = [
-    { name: "VEHICLES", link: "/vehicles" },
     { name: "MY HISTORY", link: "/history" },
     { name: "MY PROFIL", link: "/profil" },
     { name: "OUR SERVICES", link: "/services" },
@@ -48,6 +48,7 @@ function Nav() {
             </li>
           ))}
         </ul>
+        <LogOut />
       </div>
     </div>
   );
