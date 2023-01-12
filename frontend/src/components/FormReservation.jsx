@@ -69,7 +69,7 @@ function FormReservation() {
                     htmlFor="date"
                     className="mb-3 underline block text-base font-medium text-[#07074D]"
                   >
-                    Date Aller
+                    Starting date
                   </label>
                   <input
                     onChange={(e) => setDateAller(e.target.value)}
@@ -89,7 +89,7 @@ function FormReservation() {
                     htmlFor="date"
                     className="mb-3 underline block text-base font-medium text-[#07074D]"
                   >
-                    Date Retour
+                    Ending date
                   </label>
                   <input
                     onChange={(e) => setDateRetour(e.target.value)}

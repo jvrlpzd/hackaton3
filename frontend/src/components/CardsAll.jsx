@@ -12,6 +12,7 @@ function CardsAll() {
         setCars(result);
       }, []);
   });
+
   return (
     <div className="w-full grid md:grid-cols-4 gap-8">
       {cars
