@@ -9,7 +9,15 @@ export default CarContext;
 export function CarContextProvider({ children }) {
   const [cars, setCars] = useState([]);
   const [city, setCity] = useState("");
+  const [brand, setBrand] = useState("");
+  const [reservation, setReservation] = useState([]);
+  const [bookedReservations, setBookedReservations] = useState([]);
+  const [dateAller, setDateAller] = useState("");
+  const [dateRetour, setDateRetour] = useState("");
   const [filterCars, setFilterCars] = useState("");
+  const [fuel, setFuel] = useState("");
+  const [type, setType] = useState("");
+  const [mileage, setMileage] = useState("");
   const [editPostMenu, setEditPostMenu] = useState(false);
   const [editPostModal, setEditPostModal] = useState(false);
   return (
@@ -20,12 +28,28 @@ export function CarContextProvider({ children }) {
         setCars,
         city,
         setCity,
+        brand,
+        setBrand,
+        reservation,
+        setReservation,
+        bookedReservations,
+        setBookedReservations,
         filterCars,
         setFilterCars,
+        dateAller,
+        setDateAller,
+        dateRetour,
+        setDateRetour,
         editPostMenu,
         setEditPostMenu,
         editPostModal,
         setEditPostModal,
+        type,
+        setType,
+        mileage,
+        setMileage,
+        fuel,
+        setFuel,
       }}
     >
       {children}
