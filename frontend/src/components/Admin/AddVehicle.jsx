@@ -2,17 +2,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function EditVehicles({ car }) {
+function AddVehicle() {
+  const navigate = useNavigate();
+
   const [dataCar, setDataCar] = useState({
-    brand: car.brand,
-    model: car.model,
-    car_type: car.car_type,
-    construction_date: car.construction_date,
-    mileage: car.mileage,
-    fuel: car.fuel,
-    technical_sheet: car.technical_sheet,
-    city: car.city,
-    needs_repairing: car.needs_repairing,
+    brand: "",
+    model: "",
+    car_type: "",
+    construction_date: "",
+    mileage: "",
+    fuel: "",
+    technical_sheet: "",
+    city: "",
+    needs_repairing: "",
   });
 
   const onChange = (e) => {
@@ -21,7 +23,6 @@ function EditVehicles({ car }) {
       [e.target.name]: e.target.value,
     });
   };
-  const nav = useNavigate();
 
   const onSubmit = (e) => {
     console.log(dataCar);
@@ -32,26 +33,25 @@ function EditVehicles({ car }) {
     const body = JSON.stringify(dataCar);
 
     const requestOptions = {
-      method: "PUT",
+      method: "POST",
       headers: myHeaders,
       body,
     };
     if (
-      dataCar.brand ||
-      dataCar.model ||
-      dataCar.car_type ||
-      dataCar.construction_date ||
-      dataCar.mileage ||
-      dataCar.fuel ||
-      dataCar.technical_sheet ||
-      dataCar.city ||
-      dataCar.needs_repairing
+      dataCar.brand &&
+      dataCar.construction_date &&
+      dataCar.mileage &&
+      dataCar.technical_sheet &&
+      dataCar.car_type &&
+      dataCar.model &&
+      dataCar.city &&
+      dataCar.fuel
     ) {
       // On appelle le back. Si tous les middleware placé sur la route ci-dessous, je pourrais être renvoyé à la route login
-      fetch(`http://localhost:5000/api/vehicles/${car.id}`, requestOptions)
+      fetch(`http://localhost:5000/api/vehicles`, requestOptions)
         .then((response) => response.text())
         .then(() => {
-          nav("/adminhome");
+          navigate("/adminhome");
         })
         .catch(console.error);
     }
@@ -66,7 +66,7 @@ function EditVehicles({ car }) {
         <div className="flex justify-center mb-4">
           <img
             className="rounded-full w-36 h-32 border-4 border-violet mr-4"
-            src={car.image}
+            src=""
             alt="Car"
           />
           <div className="flex flex-col justify-evenly">
@@ -90,7 +90,7 @@ function EditVehicles({ car }) {
               name="brand"
               value={dataCar.brand}
               onChange={onChange}
-              placeholder={car.brand}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
@@ -101,7 +101,7 @@ function EditVehicles({ car }) {
               name="model"
               value={dataCar.model}
               onChange={onChange}
-              placeholder={car.model}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
@@ -112,7 +112,7 @@ function EditVehicles({ car }) {
               name="car_type"
               value={dataCar.car_type}
               onChange={onChange}
-              placeholder={car.car_type}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
@@ -123,6 +123,7 @@ function EditVehicles({ car }) {
               name="construction_date"
               value={dataCar.construction_date}
               onChange={onChange}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
@@ -133,7 +134,7 @@ function EditVehicles({ car }) {
               name="mileage"
               value={dataCar.mileage}
               onChange={onChange}
-              placeholder={car.mileage}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
@@ -144,7 +145,7 @@ function EditVehicles({ car }) {
               name="fuel"
               value={dataCar.fuel}
               onChange={onChange}
-              placeholder={car.fuel}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 flex-col mx-auto text-xl mb-2">
@@ -155,7 +156,7 @@ function EditVehicles({ car }) {
               name="technical_sheet"
               value={dataCar.technical_sheet}
               onChange={onChange}
-              placeholder={car.technical_sheet}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
@@ -166,7 +167,7 @@ function EditVehicles({ car }) {
               name="city"
               value={dataCar.city}
               onChange={onChange}
-              placeholder={car.city}
+              placeholder=""
             />
           </label>
           <label className="flex w-1/2 mx-auto flex-col  text-xl mb-2">
@@ -177,7 +178,7 @@ function EditVehicles({ car }) {
               name="needs_repairing"
               value={dataCar.needs_repairing}
               onChange={onChange}
-              placeholder={car.needs_repairing}
+              placeholder=""
             />
           </label>
 
@@ -195,4 +196,4 @@ function EditVehicles({ car }) {
   );
 }
 
-export default EditVehicles;
+export default AddVehicle;
