@@ -8,7 +8,7 @@ CREATE TABLE user (
   lastname VARCHAR(100) NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
   phone VARCHAR(20) UNIQUE NOT NULL,
-  password VARCHAR(50) NOT NULL,
+  password VARCHAR(100) NOT NULL,
   profile_picture VARCHAR(500),
   license VARCHAR(100) UNIQUE NOT NULL,
   role VARCHAR(20) NOT NULL DEFAULT 'user'

@@ -18,7 +18,7 @@ function FormReservation() {
 
   return (
     <div>
-      <div className="mt-[-100px] mx-auto my-4 text-center py-3 md:mt-[-560px] md:pb-4 z-10 flex items-center shadow-sm bg-white  justify-center ">
+      <div className="mt-[-20px] mx-auto my-4 text-center py-3 md:mt-[-500px] md:pb-4 z-10 flex items-center shadow-sm bg-white  justify-center ">
         <div className="mx-auto my-4 md:pb-5 pb-1  w-full md:max-w-[850px] rounded-xl bg-white">
           <form
             type="submit"
@@ -132,5 +132,4 @@ function FormReservation() {
     </div>
   );
 }
-
 export default FormReservation;
