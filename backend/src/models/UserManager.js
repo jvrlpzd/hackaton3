@@ -7,21 +7,21 @@ class UserManager extends AbstractManager {
 
   findByEmailWithPassword(email) {
     return this.connection.query(
-      `select * from  ${this.table} where email = ?`,
+      `select * from ${this.table} where email = ?`,
       [email]
     );
   }
 
   insert(user) {
     return this.connection.query(
-      `insert into ${this.table} (firstname, lastname, email, phone, password, profil_picture, role, license) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (firstname, lastname, email, phone, password, profile_picture, role, license) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         user.firstname,
         user.lastname,
         user.email,
         user.phone,
-        user.password,
-        user.profil_picture,
+        user.hashedPassword,
+        user.profile_picture,
         user.role,
         user.license,
       ]
@@ -36,7 +36,7 @@ class UserManager extends AbstractManager {
         user.lastname,
         user.email,
         user.phone,
-        user.password,
+        user.hashedPassword,
         user.profil_picture,
         user.role,
         user.license,

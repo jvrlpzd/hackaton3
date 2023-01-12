@@ -10,7 +10,7 @@ function Banner() {
       <img
         src={bannerPicture}
         alt="bannerPicture"
-        className=" h-[706px] w-full"
+        className="md:h-[706px] w-full"
       />
     </div>
   );
