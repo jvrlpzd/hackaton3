@@ -8,7 +8,7 @@ function SideBar() {
   const Brands = [
     { id: 2, name: "Alfa Romeo" },
     { id: 3, name: "Audi" },
-    { id: 4, name: "Bmw" },
+    { id: 4, name: "BMW" },
     { id: 5, name: "Citröen" },
     { id: 6, name: "Dacia" },
     { id: 7, name: "Fiat" },
