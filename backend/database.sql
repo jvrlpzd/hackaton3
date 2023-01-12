@@ -21,7 +21,7 @@ CREATE TABLE vehicle (
     brand VARCHAR(100) NOT NULL,
     model VARCHAR(100) NOT NULL,
     car_type VARCHAR(100) NOT NULL,
-    construction_date VARCHAR(20npm ) NOT NULL,
+    construction_date VARCHAR(20) NOT NULL,
     mileage INT NOT NULL,
     fuel VARCHAR(20) NOT NULL,
     technical_sheet VARCHAR(500),

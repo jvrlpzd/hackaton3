@@ -15,6 +15,14 @@ function FormReservation() {
     setIsTrue(true);
   }
 
+  function handleDataAller(e) {
+    setDateAller(e.target.value);
+  }
+
+  function handleDataRetour(e) {
+    setDateRetour(e.target.value);
+  }
+
   return (
     <div className="">
       <div className="mt-[-50px] mx-auto my-4 text-center py-3 md:mt-[-500px] md:pb-4 z-10 flex items-center shadow-sm bg-white  justify-center ">
@@ -67,11 +75,7 @@ function FormReservation() {
                     Starting date
                   </label>
                   <input
-                    onChange={(e) =>
-                      setDateAller(
-                        parseInt(e.target.value.split("-").join(""), 10)
-                      )
-                    }
+                    onChange={(e) => handleDataAller(e)}
                     type="date"
                     name="date"
                     id="date"
@@ -90,11 +94,7 @@ function FormReservation() {
                     Ending date
                   </label>
                   <input
-                    onChange={(e) =>
-                      setDateRetour(
-                        parseInt(e.target.value.split("-").join(""), 10)
-                      )
-                    }
+                    onChange={(e) => handleDataRetour(e)}
                     type="date"
                     name="date"
                     id="date"

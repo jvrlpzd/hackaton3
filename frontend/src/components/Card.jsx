@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from "react";
+import { Link } from "react-router-dom";
 import cable from "../assets/HistoryPage/câble.png";
 import valises from "../assets/HistoryPage/valises.png";
 import clim from "../assets/HistoryPage/clim.png";
@@ -63,7 +64,7 @@ function Card({ car }) {
           type="button"
           className="hover:shadow-form rounded-md bg-[#15133C] mb-3 py-3 px-8 text-center text-base font-semibold text-white outline-none hover:shadow hover:bg-[#FFFFFF] hover:text-[#15133C] hover:border hover:border-[#15133C]"
         >
-          Reserver
+          <Link to={`/reservation/${car.id}`}>Reserver</Link>
         </button>
       </div>
     </div>
