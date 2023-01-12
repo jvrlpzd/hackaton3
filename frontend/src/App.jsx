@@ -11,7 +11,7 @@ import Connexion from "./pages/Connexion";
 import { CurrentUserContextProvider } from "./context/userContext";
 import { CarContextProvider } from "./context/carContext";
 import AdminHome from "./components/Admin/AdminHome";
-import AdminVehicles from "./components/Admin/AdminVehicles";
+import AdminVehicles from "./components/Admin/EditVehicles";
 
 function App() {
   return (
