@@ -8,9 +8,8 @@ import { useCarContext } from "../context/carContext";
 
 function FormReservation() {
   const [isTrue, setIsTrue] = useState(false);
-  const [dateAller, setDateAller] = useState("");
-  const [dateRetour, setDateRetour] = useState("");
-  const { setCity } = useCarContext();
+  const { setCity, dateAller, setDateAller, dateRetour, setDateRetour } =
+    useCarContext();
 
   function showSlideBar() {
     setIsTrue(!isTrue);
@@ -72,8 +71,12 @@ function FormReservation() {
                     Date Aller
                   </label>
                   <input
-                    onChange={(e) => setDateAller(e.target.value)}
-                    value={dateAller}
+                    onChange={(e) =>
+                      setDateAller(
+                        parseInt(e.target.value.split("-").join(""), 10)
+                      )
+                    }
+                    // value={dateAller}
                     type="date"
                     name="date"
                     id="date"
@@ -92,8 +95,12 @@ function FormReservation() {
                     Date Retour
                   </label>
                   <input
-                    onChange={(e) => setDateRetour(e.target.value)}
-                    value={dateRetour}
+                    onChange={(e) =>
+                      setDateRetour(
+                        parseInt(e.target.value.split("-").join(""), 10)
+                      )
+                    }
+                    // value={dateRetour}
                     type="date"
                     name="date"
                     id="date"
@@ -110,6 +117,19 @@ function FormReservation() {
             </div>
 
             <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() =>
+                  console.log(
+                    typeof dateAller,
+                    dateAller,
+                    typeof dateRetour,
+                    dateRetour
+                  )
+                }
+              >
+                YOLO
+              </button>
               <button
                 onClick={() => showSlideBar()}
                 type="button"

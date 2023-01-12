@@ -3,8 +3,14 @@ import Card from "./Card";
 import { useCarContext } from "../context/carContext";
 
 function CardsAll() {
-  const { cars, setCars, city, filterCars, setBookedReservations } =
-    useCarContext();
+  const {
+    cars,
+    setCars,
+    city,
+    filterCars,
+    // bookedReservations,
+    setBookedReservations,
+  } = useCarContext();
 
   useEffect(() => {
     fetch("http://localhost:5000/api/vehicles")
@@ -27,6 +33,16 @@ function CardsAll() {
         .map((car) => (
           <Card car={car} />
         ))}
+      <button
+        type="button"
+        // onClick={() =>
+        //   console.log(
+        //     parseInt(bookedReservations[0].taken_date.split("/").join(""), 10)
+        //   )
+        // }
+      >
+        YOLOOOOO
+      </button>
     </div>
   );
 }

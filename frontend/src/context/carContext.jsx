@@ -12,6 +12,8 @@ export function CarContextProvider({ children }) {
   const [brand, setBrand] = useState("");
   const [reservation, setReservation] = useState([]);
   const [bookedReservations, setBookedReservations] = useState([]);
+  const [dateAller, setDateAller] = useState("");
+  const [dateRetour, setDateRetour] = useState("");
 
   const [filterCars, setFilterCars] = useState("");
   return (
@@ -30,6 +32,10 @@ export function CarContextProvider({ children }) {
         setBookedReservations,
         filterCars,
         setFilterCars,
+        dateAller,
+        setDateAller,
+        dateRetour,
+        setDateRetour,
       }}
     >
       {children}

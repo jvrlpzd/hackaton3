@@ -76,7 +76,8 @@ CREATE TABLE vehicle (
     fuel VARCHAR(20) NOT NULL,
     technical_sheet VARCHAR(500),
     city VARCHAR(100) NOT NULL,
-    image VARCHAR(500)
+    image VARCHAR(500),
+    needs_repairing BOOL NOT NULL DEFAULT false
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
