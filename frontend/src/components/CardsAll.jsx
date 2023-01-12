@@ -3,8 +3,7 @@ import Card from "./Card";
 import { useCarContext } from "../context/carContext";
 
 function CardsAll() {
-  const { cars, setCars, city } = useCarContext();
-  // const [filterCars, setFilterCars] = useState("");
+  const { cars, setCars, city, filterCars } = useCarContext();
 
   useEffect(() => {
     fetch("http://localhost:5000/api/vehicles")
@@ -13,11 +12,11 @@ function CardsAll() {
         setCars(result);
       }, []);
   });
-
   return (
     <div className="w-full grid md:grid-cols-4 gap-8">
       {cars
-        .filter((car) => city === car.city)
+        .filter((car) => city === "" || city === car.city)
+        .filter((car) => filterCars === "" || filterCars === car.brand)
         .map((car) => (
           <Card car={car} />
         ))}
