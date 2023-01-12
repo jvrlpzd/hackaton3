@@ -11,6 +11,7 @@ import { CurrentUserContextProvider } from "./context/userContext";
 import { CarContextProvider } from "./context/carContext";
 import AdminHome from "./components/Admin/AdminHome";
 import AdminVehicles from "./components/Admin/EditVehicles";
+import Reservation from "./pages/Reservation";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Connexion />} />
             <Route path="/profil" element={<MyProfile />} />
             <Route path="/services" element={<OurServices />} />
+            <Route path="/reservation/:id" element={<Reservation />} />
             <Route path="/adminhome" element={<AdminHome />} />
             <Route path="/adminvehicles" element={<AdminVehicles />} />
           </Routes>

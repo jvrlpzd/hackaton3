@@ -42,12 +42,12 @@ function CardsAll() {
           (reservation) =>
             reservation.vehicle_id === car.id &&
             (isBetween(
-              dateAller,
+              parseInt(dateAller.split("-").join(""), 10),
               parseInt(reservation.taken_date.split("/").join(""), 10),
               parseInt(reservation.return_date.split("/").join(""), 10)
             ) ||
               isBetween(
-                dateRetour,
+                parseInt(dateRetour.split("-").join(""), 10),
                 parseInt(reservation.taken_date.split("/").join(""), 10),
                 parseInt(reservation.return_date.split("/").join(""), 10)
               ))
@@ -64,7 +64,7 @@ function CardsAll() {
         .filter((car) => type === "" || type === car.car_type)
         .filter((car) => fuel === "" || fuel === car.fuel)
         .map((car) => (
-          <Card car={car} />
+          <Card key={car.id} car={car} />
         ))}
     </div>
   );
