@@ -26,7 +26,7 @@ function Nav() {
             <ion-icon name="logo-ionic" />
           </span>
           <Link to="/">
-            <img className="w-32 h-16" src={logo} alt="" />
+            <img className="w-24 h-12" src={logo} alt="" />
           </Link>
         </div>
         <button
