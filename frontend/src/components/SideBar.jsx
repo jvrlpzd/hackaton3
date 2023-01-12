@@ -6,7 +6,6 @@ import { useCarContext } from "../context/carContext";
 
 function SideBar() {
   const Brands = [
-    { id: 1, name: "-Brand-" },
     { id: 2, name: "Alfa Romeo" },
     { id: 3, name: "Audi" },
     { id: 4, name: "Bmw" },
@@ -24,7 +23,7 @@ function SideBar() {
     { id: 16, name: "Volskwagen" },
   ];
 
-  const { setBrand } = useCarContext();
+  const { setFilterCars, filterCars } = useCarContext();
 
   const [type, setType] = useState("");
 
@@ -33,11 +32,17 @@ function SideBar() {
   const [fuel, setFuel] = useState("");
 
   return (
-    <div className="flex mb-2 md:py-2 justify-center border text-center overflow-x-auto ">
+    <div
+      className="flex mb-2 md:py-2 justify-center border text-center overflow-x-auto"
+      id="ancreCars"
+    >
       <select
-        onChange={(e) => setBrand(e.target.value)}
+        onChange={(e) => setFilterCars(e.target.value)}
         className=" w-auto ml-[76px] md:my-2 md:mx-2 md:px-3 text-center p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
+        <option value="" className=" sm:text-sm md:text-lg" key="0">
+          Toutes
+        </option>
         {Brands.map((brand) => (
           <option
             value={brand.name}
