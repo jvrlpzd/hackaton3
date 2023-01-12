@@ -14,11 +14,11 @@ function AdminHome() {
       }, []);
   });
 
-  const deleteFromList = (id) => {
+  /* const deleteFromList = (id) => {
     // recupérer l'index de la voiture a supprimer
     // slice la voiture correspondant à l'index
-    // re-render le composant pour afficher la liste de voitures modifiée
-  };
+   // re-render le composant pour afficher la liste de voitures modifiée
+  }; */
 
   return (
     <div>
@@ -55,12 +55,6 @@ function AdminHome() {
                     className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
                   >
                     Reservations
-                  </a>
-                  <a
-                    href="/"
-                    className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
-                  >
-                    Mails
                   </a>
                 </div>
               </div>

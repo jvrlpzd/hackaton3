@@ -46,8 +46,13 @@ function ItemVehicle({ car }) {
         >
           Modifier
         </button>
+        <button className="text-black p-2 flex" type="button">
+          Supprimer
+        </button>
       </div>
-      {editPostModal ? <EditVehicles car={car} /> : null}
+      {editPostModal ? (
+        <EditVehicles setEditPostModal={setEditPostModal} car={car} />
+      ) : null}
     </tr>
   );
 }
