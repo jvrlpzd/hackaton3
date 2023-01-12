@@ -23,13 +23,11 @@ function SideBar() {
     { id: 16, name: "Volskwagen" },
   ];
 
-  const { setFilterCars, filterCars } = useCarContext();
+  const { setFilterCars, filterCars, setType, setMileage, setFuel } = useCarContext();
 
-  const [type, setType] = useState("");
+  
 
-  const [mileage, setMileage] = useState("");
-
-  const [fuel, setFuel] = useState("");
+  
 
   return (
     <div
@@ -57,7 +55,7 @@ function SideBar() {
         onChange={(e) => setType(e.target.value)}
         className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 text-center bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
-        <option className=" sm:text-sm md:text-lg">-Type-</option>
+        <option value="" className=" sm:text-sm md:text-lg">-Type-</option>
         <option value="Citadine" className=" sm:text-sm md:text-lg">
           Citadine
         </option>
@@ -74,11 +72,11 @@ function SideBar() {
           Break
         </option>
       </select>
-      <select
+      {/* <select
         onChange={(e) => setMileage(e.target.value)}
         className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white text-center border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
-        <option className=" sm:text-sm md:text-lg">-Mileage-</option>
+        <option value="" className=" sm:text-sm md:text-lg">-Mileage-</option>
         <option value={1} className=" sm:text-sm md:text-lg">
           0 km - 15 000 km
         </option>
@@ -88,16 +86,16 @@ function SideBar() {
         <option value={3} className=" sm:text-sm md:text-lg">
           + 50 000 km
         </option>
-      </select>
+      </select> */}
       <select
         onChange={(e) => setFuel(e.target.value)}
         className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 bg-white text-center border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
-        <option>-Carburant-</option>
+        <option value="">-Carburant-</option>
         <option value="Diesel" className=" sm:text-sm md:text-lg">
           Diesel
         </option>
-        <option value="Essence" className=" sm:text-sm md:text-lg">
+        <option value="Gasoline" className=" sm:text-sm md:text-lg">
           Essence
         </option>
         <option value="Electrique" className=" sm:text-sm md:text-lg">

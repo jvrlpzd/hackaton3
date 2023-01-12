@@ -8,12 +8,11 @@ import { useCarContext } from "../context/carContext";
 
 function FormReservation() {
   const [isTrue, setIsTrue] = useState(false);
-  const [dateAller, setDateAller] = useState("");
-  const [dateRetour, setDateRetour] = useState("");
-  const { setCity } = useCarContext();
+  const { setCity, dateAller, setDateAller, dateRetour, setDateRetour } =
+    useCarContext();
 
   function showSlideBar() {
-    setIsTrue(!isTrue);
+    setIsTrue(true);
   }
 
   return (
@@ -68,8 +67,11 @@ function FormReservation() {
                     Starting date
                   </label>
                   <input
-                    onChange={(e) => setDateAller(e.target.value)}
-                    value={dateAller}
+                    onChange={(e) =>
+                      setDateAller(
+                        parseInt(e.target.value.split("-").join(""), 10)
+                      )
+                    }
                     type="date"
                     name="date"
                     id="date"
@@ -88,8 +90,11 @@ function FormReservation() {
                     Ending date
                   </label>
                   <input
-                    onChange={(e) => setDateRetour(e.target.value)}
-                    value={dateRetour}
+                    onChange={(e) =>
+                      setDateRetour(
+                        parseInt(e.target.value.split("-").join(""), 10)
+                      )
+                    }
                     type="date"
                     name="date"
                     id="date"
@@ -111,14 +116,10 @@ function FormReservation() {
           </form>
         </div>
       </div>
-      {isTrue ? (
-        <div>
-          <SideBar />
-          <CardsAll />
-        </div>
-      ) : (
-        ""
-      )}
+      <div className={isTrue ? "border-spacing-0" : "hidden"}>
+        <SideBar />
+        <CardsAll />
+      </div>
     </div>
   );
 }

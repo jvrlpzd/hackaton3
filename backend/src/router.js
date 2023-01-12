@@ -22,7 +22,7 @@ router.post(
 );
 
 router.get("/api/reservation", verifyToken, reservationControllers.browse);
-router.get("/api/reservation/:id", reservationControllers.read);
+router.get("/api/reservation/:id", verifyToken, reservationControllers.read);
 router.post("/api/reservation", verifyToken, reservationControllers.add);
 router.put("/api/reservation/:id", verifyToken, reservationControllers.edit);
 router.delete(

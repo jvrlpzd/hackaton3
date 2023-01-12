@@ -69,7 +69,7 @@ VALUES
   (
     'Mercedes-Benz',
     'C-Class Coupé',
-    'Coupe',
+    'Coupé',
     '2022-12-25',
     3091,
     "Gasoline",
@@ -124,7 +124,7 @@ VALUES
   (
     'Nissan',
     'Z',
-    'Coupe',
+    'Coupé',
     '2020-05-18',
     3091,
     "Gasoline",
@@ -177,7 +177,7 @@ VALUES
   (
     'Nissan',
     'Z',
-    'Coupe',
+    'Coupé',
     '2020-05-18',
     3091,
     "Gasoline",
@@ -193,5 +193,38 @@ CREATE TABLE reservation (
   user_id INT NOT NULL,
   CONSTRAINT FK_user_reservation FOREIGN KEY (user_id) REFERENCES user(id),
   vehicle_id INT NOT NULL,
-  CONSTRAINT FK_vehicle_reservation FOREIGN KEY (vehicle_id) REFERENCES vehicle(id)
+  CONSTRAINT FK_vehicle_reservation FOREIGN KEY (vehicle_id) REFERENCES vehicle(id),
+  completed BOOL NOT NULL DEFAULT false
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO
+  reservation (taken_date, return_date, user_id, vehicle_id, completed)
+VALUES
+  (
+    '2022-02-03',
+    '2022-02-06',
+    2,
+    3,
+    true
+  ),
+  (
+    '2022-05-03',
+    '2022-05-06',
+    5,
+    8,
+    true
+  ),
+  (
+    '2023-01-20',
+    '2023-01-22',
+    5,
+    1,
+    false
+  ),
+  (
+    '2023-01-27',
+    '2023-01-29',
+    4,
+    1,
+    false
+  );
