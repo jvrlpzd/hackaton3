@@ -8,20 +8,23 @@ import Nav from "./components/navbar/Nav";
 import Connexion from "./pages/Connexion";
 import MyProfile from "./pages/MyProfile";
 import OurServices from "./pages/OurServices";
+import { CurrentUserContextProvider } from "./context/userContext";
 
 function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/vehicles" element={<Vehicles />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/history" element={<MyHistory />} />
-        <Route path="/login" element={<Connexion />} />
-        <Route path="/profil" element={<MyProfile />} />
-        <Route path="/services" element={<OurServices />} />
-      </Routes>
+      <CurrentUserContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/history" element={<MyHistory />} />
+          <Route path="/login" element={<Connexion />} />
+          <Route path="/profil" element={<MyProfile />} />
+          <Route path="/services" element={<OurServices />} />
+        </Routes>
+      </CurrentUserContextProvider>
     </BrowserRouter>
   );
 }

@@ -1,24 +1,54 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import cadenas from "../assets/AuthentificationPage/cadenas.png";
 import mail from "../assets/AuthentificationPage/email.png";
+import { useCurrentUserContext } from "../context/userContext";
 
 function Connexion() {
+  const { setUser, setToken } = useCurrentUserContext();
   /* set email and password */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleChangePassword = (e) => {
-    setPassword(e.target.value);
-  };
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
+    setEmail(e.target.value);
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-  /* submit mail and password, post to back and get the result
-  if ok -> navigate to dashboard
+    const body = JSON.stringify({
+      email,
+      password,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body,
+    };
+
+    /* submit mail and password, post to back and get the result
+  if ok -> navigate to the home page
   */
+    if (email && password) {
+      console.warn(setUser);
+      // on appelle le back
+      fetch("http://localhost:5000/api/login", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          setUser(result.user);
+          setToken(result.token);
+          navigate("/");
+        })
+
+        .catch(console.error);
+    } else {
+      setErrorMessage("Please specify email and password");
+    }
+  };
 
   return (
     <div className="">
@@ -29,7 +59,6 @@ function Connexion() {
         <h1 className=" items-center content-center justify-center text-3xl mb-16 md:mb-24 mt-44">
           CONNECTEZ-VOUS
         </h1>
-
         <div className=" flex md:w-3/5 justify-center ">
           <label htmlFor="email" name="email">
             <img src={mail} alt="arobase" className="w-14 h-14 mr-2" />
@@ -40,7 +69,7 @@ function Connexion() {
             placeholder="Entrez votre addresse email"
             required
             value={email}
-            onChange={handleChangeEmail}
+            onChange={(e) => setEmail(e.target.value)}
             id="email"
             name="email"
             className="bg-gray-200 text-gray-600 py-2 px-4 border rounded-2xl md:w-3/5 h-10 w-56 md:h-14"
@@ -49,7 +78,6 @@ function Connexion() {
         <p className="italic text-gray-400 underline mb-4 ml-28 md:ml-80 text-xs md:text-sm md:mb-16">
           Adresse e-mail oubliée ?
         </p>
-
         <div className="flex  justify-center md:w-3/5">
           <label htmlFor="password" name="password">
             <img src={cadenas} alt="locker" className="w-14 h-14 ml-1" />{" "}
@@ -58,7 +86,7 @@ function Connexion() {
             type="password"
             required
             value={password}
-            onChange={handleChangePassword}
+            onChange={(e) => setPassword(e.target.value)}
             id="password"
             name="password"
             placeholder="Entrez votre mot de passe"
@@ -74,7 +102,14 @@ function Connexion() {
         >
           Connexion
         </button>
+        <Link to="/signup" className="flex items-center">
+          <p className="flex justify-center italic text-gray-400 underline text-base mt-6">
+            You don't have an account ? Register here !
+          </p>
+        </Link>
+        ,
       </form>
+      <div>{errorMessage}</div>
     </div>
   );
 }
