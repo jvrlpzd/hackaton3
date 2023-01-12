@@ -30,15 +30,27 @@ const read = (req, res) => {
 const add = (req, res) => {
   const user = req.body;
 
-  // on verifie les données
-
   models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/api/users/${result.insertId}`).sendStatus(201);
+      res.location(`/users/${result.insertId}`).sendStatus(201);
     })
-    .catch((error) => {
-      console.error(error);
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const register = (req, res) => {
+  const user = req.body;
+
+  models.user
+    .insert(user)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
       res.sendStatus(500);
     });
 };
@@ -93,6 +105,7 @@ module.exports = {
   browse,
   read,
   add,
+  register,
   edit,
   destroy,
   updateAvatar,
