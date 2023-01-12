@@ -23,11 +23,8 @@ function SideBar() {
     { id: 16, name: "Volskwagen" },
   ];
 
-  const { setFilterCars, filterCars, setType, setMileage, setFuel } = useCarContext();
-
-  
-
-  
+  const { setFilterCars, filterCars, setType, setMileage, setFuel } =
+    useCarContext();
 
   return (
     <div
@@ -55,7 +52,9 @@ function SideBar() {
         onChange={(e) => setType(e.target.value)}
         className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 text-center bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
-        <option value="" className=" sm:text-sm md:text-lg">-Type-</option>
+        <option value="" className=" sm:text-sm md:text-lg">
+          -Type-
+        </option>
         <option value="Citadine" className=" sm:text-sm md:text-lg">
           Citadine
         </option>

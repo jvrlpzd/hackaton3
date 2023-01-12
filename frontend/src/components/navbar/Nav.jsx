@@ -39,7 +39,7 @@ function Nav() {
           }`}
         >
           {user.email ? (
-            <ul>
+            <ul className="md:flex">
               <li className="md:ml-8 text-xl md:my-0 my-7">
                 <a
                   href="/"
