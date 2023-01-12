@@ -9,6 +9,7 @@ function Nav() {
     { name: "MY HISTORY", link: "/history" },
     { name: "MY PROFIL", link: "/profil" },
     { name: "OUR SERVICES", link: "/services" },
+    { name: "SIGN IN", link: "/login" },
   ];
   const [open, setOpen] = useState(false);
   return (
