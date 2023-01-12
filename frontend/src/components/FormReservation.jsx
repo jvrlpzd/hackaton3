@@ -26,13 +26,13 @@ function FormReservation() {
   return (
     <div className="">
       <div className="mt-[-50px] mx-auto my-4 text-center py-3 md:mt-[-500px] md:pb-4 z-10 flex items-center shadow-sm bg-white  justify-center ">
-        <div className="mx-auto  my-4 md:pb-5 pb-1  w-[80%] md:max-w-[850px] bg-white">
+        <div className="mx-auto  my-4 md:pb-5 pb-1  w-[80%] md:rounded-[20px] md:max-w-[850px] bg-white">
           <form
             type="submit"
             action="https://formbold.com/s/FORM_ID"
             method="POST"
           >
-            <div className="-mx-auto md:px-18 my-8   flex flex-wrap">
+            <div className="-mx-auto md:px-18 my-8  flex flex-wrap">
               <div className="w-full mx-auto px-3 sm:w-1/2">
                 <div>
                   <select

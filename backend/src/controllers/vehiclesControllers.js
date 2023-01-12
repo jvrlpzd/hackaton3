@@ -42,17 +42,23 @@ const add = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const vehicles = req.body;
-  vehicles.id = req.params.id;
+  const vehicle = req.body;
+
+  // TODO validations (length, format...)
+
+  vehicle.id = parseInt(req.params.id, 10);
 
   models.vehicle
-    .update(vehicles)
+    .update(vehicle)
     .then(([result]) => {
-      if (result.affectedRows === 0) res.sendStatus(404);
-      else res.sendStatus(204);
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
     })
-    .catch((error) => {
-      console.error(error);
+    .catch((err) => {
+      console.error(err);
       res.sendStatus(500);
     });
 };

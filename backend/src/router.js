@@ -33,13 +33,12 @@ router.delete(
 router.get("/api/vehicles", vehiclesControllers.browse);
 router.get("/api/vehicles/:id", vehiclesControllers.read);
 router.post("/api/vehicles", vehiclesControllers.add);
-router.put("/api/vehicles/:id", verifyToken, vehiclesControllers.edit);
-router.delete("/api/vehicles/:id", verifyToken, vehiclesControllers.destroy);
+router.put("/api/vehicles/:id", vehiclesControllers.edit);
+router.delete("/api/vehicles/:id", vehiclesControllers.destroy);
 
 router.get("/api/users", userControllers.browse);
 router.get("/api/users/:id", userControllers.read);
 router.post("/api/users", hashPassword, userControllers.add);
 router.put("/api/users/:id", hashPassword, verifyToken, userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);
-
 module.exports = router;
