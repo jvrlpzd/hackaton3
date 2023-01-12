@@ -7,14 +7,14 @@ class ReservationManager extends AbstractManager {
 
   find(id) {
     return this.connection.query(
-      `select id, DATE_FORMAT(taken_date, '%d/%m/%Y') as taken_date, DATE_FORMAT(return_date, '%d/%m/%Y') as return_date, user_id, vehicle_id, completed from  ${this.table} where id = ?`,
+      `select id, DATE_FORMAT(taken_date, '%Y/%m/%d') as taken_date, DATE_FORMAT(return_date, '%Y/%m/%d') as return_date, user_id, vehicle_id, completed from  ${this.table} where id = ?`,
       [id]
     );
   }
 
   findAll() {
     return this.connection.query(
-      `select id, DATE_FORMAT(taken_date, '%d/%m/%Y') as taken_date, DATE_FORMAT(return_date, '%d/%m/%Y') as return_date, user_id, vehicle_id, completed from  ${this.table}`
+      `select id, DATE_FORMAT(taken_date, '%Y/%m/%d') as taken_date, DATE_FORMAT(return_date, '%Y/%m/%d') as return_date, user_id, vehicle_id, completed from  ${this.table}`
     );
   }
 

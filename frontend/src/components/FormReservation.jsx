@@ -12,7 +12,7 @@ function FormReservation() {
     useCarContext();
 
   function showSlideBar() {
-    setIsTrue(!isTrue);
+    setIsTrue(true);
   }
 
   return (
@@ -76,7 +76,6 @@ function FormReservation() {
                         parseInt(e.target.value.split("-").join(""), 10)
                       )
                     }
-                    // value={dateAller}
                     type="date"
                     name="date"
                     id="date"
@@ -100,36 +99,22 @@ function FormReservation() {
                         parseInt(e.target.value.split("-").join(""), 10)
                       )
                     }
-                    // value={dateRetour}
                     type="date"
                     name="date"
                     id="date"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => console.log(dateAller, dateRetour)}
                   >
                     TESTER{" "}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
 
             <div className="flex justify-center">
-              <button
-                type="button"
-                onClick={() =>
-                  console.log(
-                    typeof dateAller,
-                    dateAller,
-                    typeof dateRetour,
-                    dateRetour
-                  )
-                }
-              >
-                YOLO
-              </button>
               <button
                 onClick={() => showSlideBar()}
                 type="button"
@@ -141,14 +126,10 @@ function FormReservation() {
           </form>
         </div>
       </div>
-      {isTrue ? (
-        <div>
-          <SideBar />
-          <CardsAll />
-        </div>
-      ) : (
-        ""
-      )}
+      <div className={isTrue ? "border-spacing-0" : "hidden"}>
+        <SideBar />
+        <CardsAll />
+      </div>
     </div>
   );
 }
