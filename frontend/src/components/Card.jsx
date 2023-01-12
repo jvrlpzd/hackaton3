@@ -11,7 +11,7 @@ import doors from "../assets/HistoryPage/portes.png";
 
 function Card({ car }) {
   return (
-    <div className="w-full mb-20">
+    <div className="w-full mb-10  shadow-sm">
       <h2 className="text-xl md:text-2xl font-bold p-2 bg-white shadow-md rounded-tl-lg rounded-tr-lg h-17 flex justify-center items-center">
         {car.brand} {car.model}
       </h2>
@@ -56,6 +56,14 @@ function Card({ car }) {
           <img className="h-6 w-6 mr-4" src={doors} alt="card" />
           <p>{car.car_type === "Coupe" ? "2 doors" : "5 doors"}</p>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <button
+          type="button"
+          className="hover:shadow-form rounded-md bg-[#15133C] mb-3 py-3 px-8 text-center text-base font-semibold text-white outline-none hover:shadow hover:bg-[#FFFFFF] hover:text-[#15133C] hover:border hover:border-[#15133C]"
+        >
+          Reserver
+        </button>
       </div>
     </div>
   );

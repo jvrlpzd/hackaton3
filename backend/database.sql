@@ -191,6 +191,48 @@ VALUES
     'Incroyable',
     'Monaco',
     'https://i.imgur.com/dHTUScz.jpg'
+  ),(
+    'Peugeot',
+    '208',
+    'Sedan',
+    '2016-07-22',
+    2660,
+    "Electrique",
+    'Incroyable',
+    'Lille',
+    'https://www.peugeot.fr/content/dam/peugeot/master/b2c/open/desk/208/Showroom_208_D_Allure_1.jpg?imwidth=1920'
+  ),(
+    'Audi',
+    'Q5',
+    'SUV',
+    '2016-07-22',
+    '45000',
+    "Electrique",
+    'Incroyable',
+    'Lille',
+    'https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/audi-q5-suv-green-2021.png'
+  ),
+  (
+    'Land Rover',
+    'Range Rover',
+    'SUV',
+    '2018-09-01',
+    24031,
+    "Gasoline",
+    'Incroyable',
+    'Lille',
+    'https://i.imgur.com/NSj9Yol.jpg'
+  ),
+  (
+    'Nissan',
+    'Z',
+    'Coupe',
+    '2020-05-18',
+    3091,
+    "Gasoline",
+    'Incroyable',
+    'Lille',
+    'https://i.imgur.com/bPYe1de.jpg'
   );
 
 CREATE TABLE reservation (
