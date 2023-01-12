@@ -14,7 +14,7 @@ const vehiclesControllers = require("./controllers/vehiclesControllers");
 const userControllers = require("./controllers/userControllers");
 const reservationControllers = require("./controllers/reservationControllers");
 
-router.post("/api/register", hashPassword, userControllers.add);
+router.post("/api/register", hashPassword, userControllers.register);
 router.post(
   "/api/login",
   authControllers.getUserByEmailWithPasswordAndPassToNext,

@@ -56,6 +56,7 @@ function Card({ car }) {
           <img className="h-6 w-6 mr-4" src={doors} alt="card" />
           <p>{car.car_type === "Coupe" ? "2 doors" : "5 doors"}</p>
         </div>
+        <p>{car.city}</p>
       </div>
       <div className="flex justify-center">
         <button

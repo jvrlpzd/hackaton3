@@ -16,6 +16,8 @@ export function CarContextProvider({ children }) {
   const [dateRetour, setDateRetour] = useState("");
 
   const [filterCars, setFilterCars] = useState("");
+  const [editPostMenu, setEditPostMenu] = useState(false);
+  const [editPostModal, setEditPostModal] = useState(false);
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <CarContext.Provider
@@ -36,6 +38,10 @@ export function CarContextProvider({ children }) {
         setDateAller,
         dateRetour,
         setDateRetour,
+        editPostMenu,
+        setEditPostMenu,
+        editPostModal,
+        setEditPostModal,
       }}
     >
       {children}
