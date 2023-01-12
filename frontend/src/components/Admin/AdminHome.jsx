@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/self-closing-comp */
 import React, { useEffect, useState } from "react";
