@@ -25,7 +25,6 @@ function AddVehicle() {
   };
 
   const onSubmit = (e) => {
-    console.log(dataCar);
     e.preventDefault();
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
