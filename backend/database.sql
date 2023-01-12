@@ -242,5 +242,38 @@ CREATE TABLE reservation (
   user_id INT NOT NULL,
   CONSTRAINT FK_user_reservation FOREIGN KEY (user_id) REFERENCES user(id),
   vehicle_id INT NOT NULL,
-  CONSTRAINT FK_vehicle_reservation FOREIGN KEY (vehicle_id) REFERENCES vehicle(id)
+  CONSTRAINT FK_vehicle_reservation FOREIGN KEY (vehicle_id) REFERENCES vehicle(id),
+  completed BOOL NOT NULL DEFAULT false
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO
+  reservation (taken_date, return_date, user_id, vehicle_id, completed)
+VALUES
+  (
+    '2022-02-03',
+    '2022-02-06',
+    2,
+    1,
+    true
+  ),
+  (
+    '2022-05-03',
+    '2022-05-06',
+    5,
+    8,
+    true
+  ),
+  (
+    '2023-02-03',
+    '2023-02-06',
+    5,
+    6,
+    false
+  ),
+  (
+    '2023-05-03',
+    '2023-05-06',
+    4,
+    3,
+    false
+  );

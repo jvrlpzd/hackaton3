@@ -5,6 +5,19 @@ class ReservationManager extends AbstractManager {
     super({ table: "reservation" });
   }
 
+  find(id) {
+    return this.connection.query(
+      `select id, DATE_FORMAT(taken_date, '%d/%m/%Y') as taken_date, DATE_FORMAT(return_date, '%d/%m/%Y') as return_date, user_id, vehicle_id, completed from  ${this.table} where id = ?`,
+      [id]
+    );
+  }
+
+  findAll() {
+    return this.connection.query(
+      `select id, DATE_FORMAT(taken_date, '%d/%m/%Y') as taken_date, DATE_FORMAT(return_date, '%d/%m/%Y') as return_date, user_id, vehicle_id, completed from  ${this.table}`
+    );
+  }
+
   insert(reservation) {
     return this.connection.query(
       `insert into ${this.table} (id, taken_date, return_date, user_id, vehicle_id) values (?, ?, ?, ?, ?)`,
