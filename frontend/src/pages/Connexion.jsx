@@ -57,7 +57,7 @@ function Connexion() {
         className=" flex flex-col items-center justify-center  "
       >
         <h1 className=" items-center content-center justify-center text-3xl mb-16 md:mb-24 mt-44">
-          CONNECTEZ-VOUS
+          SIGN IN
         </h1>
         <div className=" flex md:w-3/5 justify-center ">
           <label htmlFor="email" name="email">
@@ -66,7 +66,7 @@ function Connexion() {
           <input
             type="email"
             pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-            placeholder="Entrez votre addresse email"
+            placeholder="Enter your email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -76,7 +76,7 @@ function Connexion() {
           />
         </div>
         <p className="italic text-gray-400 underline mb-4 ml-28 md:ml-80 text-xs md:text-sm md:mb-16">
-          Adresse e-mail oubliée ?
+          Forget your email ?
         </p>
         <div className="flex  justify-center md:w-3/5">
           <label htmlFor="password" name="password">
@@ -89,12 +89,12 @@ function Connexion() {
             onChange={(e) => setPassword(e.target.value)}
             id="password"
             name="password"
-            placeholder="Entrez votre mot de passe"
+            placeholder="Enter your password"
             className="bg-gray-200  text-gray-600 py-2 px-4 border rounded-2xl md:w-3/5 h-10 w-56 md:h-14"
           />
         </div>
         <p className="italic text-gray-400 underline mb-4 ml-28 md:ml-80 text-xs md:text-sm md:mb-16">
-          Mot de passe oublié ?
+          Forget your password ?
         </p>
         <button
           type="submit"

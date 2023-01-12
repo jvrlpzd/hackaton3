@@ -11,7 +11,7 @@ CREATE TABLE user (
   password VARCHAR(100) NOT NULL,
   profile_picture VARCHAR(500),
   license VARCHAR(100) UNIQUE NOT NULL,
-  role VARCHAR(20) NOT NULL DEFAULT 'user'
+  role VARCHAR(20) DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `user` VALUES (1,'Chloe','Bidau','chloebidau@hotmail.fr','0647067609','$argon2id$v=19$m=65536,t=5,p=1$GfoNdBi1vgoc4TxdWBVH6A$ZsVvZmnDMSwW40Lz0tm5W5UwqdJNLCJ+ZrXb9MbMzzo',NULL,'1A2B3C4D5E6F8G0','user'),(2,'Doroteya','Donova','doroteya@donova.fr','0647067610','$argon2id$v=19$m=65536,t=5,p=1$a4wIpQ6TEB/bRivgzEUCag$R3LMRRfdCervop+pWorKoAKK10YViVZJEc7a5c/V3II',NULL,'1A2B3C4D5E6F8G1','user'),(3,'Javier','Lopez','javier@lopez.fr','0647067611','$argon2id$v=19$m=65536,t=5,p=1$tkZASsFZaPQiUbLTGQ1GdA$LIbQzH9cWe8PDUQksEZ0LxdqCFghw4KcUs3NecMpBSM',NULL,'1A2B3C4D5E6F8G2','user'),(4,'Ryan','Beaujot','ryan@beaujot.fr','0647067612','$argon2id$v=19$m=65536,t=5,p=1$s0khPns0y6GXDtneIJF2sQ$PsD2sn9ZOJWQ52mnoLEfcRHdxDGHesTD6ghxdaIpUf8',NULL,'1A2B3C4D5E6F8G3','user'),(5,'Matthieu','Georges','matthieu@georges.fr','0647067613','$argon2id$v=19$m=65536,t=5,p=1$hinZbfKyRsIenolZB1YM/w$Yxaor2Rm/NwGfh98Zuq/s7LC/b0pblhpIM0NZxXArCM',NULL,'1A2B3C4D5E6F8G4','user');

@@ -41,6 +41,20 @@ const add = (req, res) => {
     });
 };
 
+const register = (req, res) => {
+  const user = req.body;
+
+  models.user
+    .insert(user)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const user = req.body;
   user.id = req.params.id;
@@ -91,6 +105,7 @@ module.exports = {
   browse,
   read,
   add,
+  register,
   edit,
   destroy,
   updateAvatar,

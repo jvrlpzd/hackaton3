@@ -14,7 +14,7 @@ const vehiclesControllers = require("./controllers/vehiclesControllers");
 const userControllers = require("./controllers/userControllers");
 const reservationControllers = require("./controllers/reservationControllers");
 
-router.post("/api/register", hashPassword, userControllers.add);
+router.post("/api/register", hashPassword, userControllers.register);
 router.post(
   "/api/login",
   authControllers.getUserByEmailWithPasswordAndPassToNext,
@@ -38,7 +38,7 @@ router.delete("/api/vehicles/:id", verifyToken, vehiclesControllers.destroy);
 
 router.get("/api/users", userControllers.browse);
 router.get("/api/users/:id", userControllers.read);
-router.post("/api/users", hashPassword, userControllers.add);
+router.post("/api/users", hashPassword, verifyToken, userControllers.add);
 router.put("/api/users/:id", hashPassword, verifyToken, userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);
 
