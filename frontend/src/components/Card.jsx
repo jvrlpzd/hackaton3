@@ -62,6 +62,7 @@ function Card({ car }) {
               : "5 doors"}
           </p>
         </div>
+        <p>{car.car_city}</p>
       </div>
       <div className="flex justify-center">
         <button

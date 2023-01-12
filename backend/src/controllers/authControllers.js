@@ -2,17 +2,21 @@ const models = require("../models");
 
 const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
   const { email } = req.body;
+
   models.user
     .findByEmailWithPassword(email)
     .then(([users]) => {
-      if (users[0]) {
+      if (users[0] != null) {
         [req.user] = users;
+
         next();
-      } else res.sendStatus(401);
+      } else {
+        res.sendStatus(401);
+      }
     })
-    .catch((error) => {
-      console.error(error);
-      res.sendStatus(500);
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
     });
 };
 
