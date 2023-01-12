@@ -37,7 +37,12 @@ function Connexion() {
       console.warn(setUser);
       // on appelle le back
       fetch("http://localhost:5000/api/login", requestOptions)
-        .then((response) => response)
+        .then((response) => {
+          // Si la réponse est un statut 401 : ça déclenche une erreur sinon ça renvoit la réponse au format JSON
+          if (response.status === 401) {
+            throw new Error("User incorrect");
+          } else return response.json();
+        })
         .then((result) => {
           setUser(result.user);
           setToken(result.token);
@@ -107,7 +112,6 @@ function Connexion() {
             You don't have an account ? Register here !
           </p>
         </Link>
-        ,
       </form>
       <div>{errorMessage}</div>
     </div>

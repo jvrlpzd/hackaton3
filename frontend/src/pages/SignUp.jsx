@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useCurrentUserContext } from "../context/userContext";
 
 function SignUp() {
-  const { setUser } = useCurrentUserContext();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [credentials, setCredentials] = useState({
@@ -43,7 +41,6 @@ function SignUp() {
       credentials.password &&
       credentials.license
     ) {
-      console.warn(setUser);
       // On appelle le back. Si tous les middleware placé sur la route ci-dessous, je pourrais être renvoyé à la route login
       fetch("http://localhost:5000/api/register", requestOptions)
         .then((response) => response.text())
