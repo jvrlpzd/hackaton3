@@ -7,6 +7,8 @@ import { useCarContext } from "../context/carContext";
 
 function FormReservation() {
   const [isTrue, setIsTrue] = useState(false);
+  const [dateAller, setDateAller] = useState("");
+  const [dateRetour, setDateRetour] = useState("");
   const { setCity } = useCarContext();
 
   function showSlideBar() {
@@ -24,6 +26,12 @@ function FormReservation() {
           >
             <div className="-mx-auto md:px-18 my-8  flex flex-wrap">
               <div className="w-full mx-auto px-3 sm:w-1/2">
+                <label
+                  htmlFor="date"
+                  className="mb-3 underline block text-base font-medium text-[#07074D]"
+                >
+                  City for the location
+                </label>
                 <div className="mb-5 mx-auto  py-3 flex justify-center rounded-md border border-[#e0e0e0]">
                   <select
                     onChange={(e) => setCity(e.target.value)}
@@ -58,11 +66,13 @@ function FormReservation() {
                 <div className="mb-5">
                   <label
                     htmlFor="date"
-                    className="mb-3 block text-base font-medium text-[#07074D]"
+                    className="mb-3 underline block text-base font-medium text-[#07074D]"
                   >
                     Date Aller
                   </label>
                   <input
+                    onChange={(e) => setDateAller(e.target.value)}
+                    value={dateAller}
                     type="date"
                     name="date"
                     id="date"
@@ -76,16 +86,24 @@ function FormReservation() {
                 <div className="mb-5">
                   <label
                     htmlFor="date"
-                    className="mb-3 block text-base font-medium text-[#07074D]"
+                    className="mb-3 underline block text-base font-medium text-[#07074D]"
                   >
                     Date Retour
                   </label>
                   <input
+                    onChange={(e) => setDateRetour(e.target.value)}
+                    value={dateRetour}
                     type="date"
                     name="date"
                     id="date"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
+                  <button
+                    type="button"
+                    onClick={() => console.log(dateAller, dateRetour)}
+                  >
+                    TESTER{" "}
+                  </button>
                 </div>
               </div>
             </div>
