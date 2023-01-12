@@ -33,7 +33,7 @@ function SideBar() {
     >
       <select
         onChange={(e) => setFilterCars(e.target.value)}
-        className=" w-auto ml-[76px] md:my-2 md:mx-2 md:px-3 text-center p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+        className=" w-auto sm:ml-[36px] md:my-2 md:mx-2 md:px-3 text-center p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
         <option value="" className=" sm:text-sm md:text-lg" key="0">
           Toutes

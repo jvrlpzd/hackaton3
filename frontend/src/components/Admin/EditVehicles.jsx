@@ -80,6 +80,7 @@ function EditVehicles({ car }) {
         </div>
         <form
           onSubmit={(e) => onSubmit(e)}
+          method="PUT"
           className="grid grid-cols-2 justify-center  items-center"
         >
           <label className="flex w-1/2 mx-auto  flex-col text-xl mb-2">
