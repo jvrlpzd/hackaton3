@@ -37,7 +37,7 @@ function Connexion() {
       console.warn(setUser);
       // on appelle le back
       fetch("http://localhost:5000/api/login", requestOptions)
-        .then((response) => response.json())
+        .then((response) => response)
         .then((result) => {
           setUser(result.user);
           setToken(result.token);

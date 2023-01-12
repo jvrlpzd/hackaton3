@@ -9,23 +9,30 @@ import Connexion from "./pages/Connexion";
 import MyProfile from "./pages/MyProfile";
 import OurServices from "./pages/OurServices";
 import { CurrentUserContextProvider } from "./context/userContext";
+import { CarContextProvider } from "./context/carContext";
+import AdminHome from "./components/Admin/AdminHome";
+import AdminVehicles from "./components/Admin/AdminVehicles";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
-      <CurrentUserContextProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/vehicles" element={<Vehicles />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/history" element={<MyHistory />} />
-          <Route path="/login" element={<Connexion />} />
-          <Route path="/profil" element={<MyProfile />} />
-          <Route path="/services" element={<OurServices />} />
-        </Routes>
-      </CurrentUserContextProvider>
-    </BrowserRouter>
+    <CurrentUserContextProvider>
+      <CarContextProvider>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/vehicles" element={<Vehicles />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/history" element={<MyHistory />} />
+            <Route path="/login" element={<Connexion />} />
+            <Route path="/profil" element={<MyProfile />} />
+            <Route path="/services" element={<OurServices />} />
+            <Route path="/adminhome" element={<AdminHome />} />
+            <Route path="/adminvehicles" element={<AdminVehicles />} />
+          </Routes>
+        </BrowserRouter>
+      </CarContextProvider>
+    </CurrentUserContextProvider>
   );
 }
 

@@ -23,12 +23,14 @@ CREATE TABLE vehicle (
     car_type VARCHAR(100) NOT NULL,
     construction_date DATE NOT NULL,
     mileage INT NOT NULL,
+    fuel VARCHAR(20) NOT NULL,
     technical_sheet VARCHAR(500),
-    avatar VARCHAR(500)
+    city VARCHAR(100) NOT NULL,
+    image VARCHAR(500)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
-  vehicle (brand, model, car_type, construction_date, mileage, technical_sheet)
+  vehicle (brand, model, car_type, construction_date, mileage, fuel, technical_sheet, city, image)
 VALUES
   (
     'Mercedes-Benz',
@@ -36,7 +38,10 @@ VALUES
     'Sedan',
     '2016-07-22',
     6660,
-    'Incroyable'
+    "Gasoline",
+    'Incroyable',
+    'Lille',
+    'https://i.imgur.com/uHqgOuo.jpeg'
   ),
   (
     'Land Rover',
@@ -44,7 +49,10 @@ VALUES
     'SUV',
     '2018-09-01',
     24031,
-    'Incroyable'
+    "Gasoline",
+    'Incroyable',
+    'Paris',
+    'https://i.imgur.com/NSj9Yol.jpg'
   ),
   (
     'Peugeot',
@@ -52,7 +60,10 @@ VALUES
     'Berline',
     '2020-02-13',
     8070,
-    'Incroyable'
+    "Electrique",
+    'Incroyable',
+    'Lyon',
+    'https://i.imgur.com/HgcnLTa.jpg'
   ),
   (
     'Mercedes-Benz',
@@ -60,7 +71,10 @@ VALUES
     'Coupe',
     '2022-12-25',
     3091,
-    'Incroyable'
+    "Gasoline",
+    'Incroyable',
+    'Bordeaux',
+    'https://i.imgur.com/NeyRSIj.jpg'
   ),
   (
     'Fiat',
@@ -68,7 +82,10 @@ VALUES
     'Citadine',
     '2021-03-29',
     11003,
-    'Incroyable'
+    "Diesel",
+    'Incroyable',
+    'Monaco',
+    'https://i.imgur.com/xtCieEC.jpg'
   ),
   (
     'Peugeot',
@@ -76,7 +93,10 @@ VALUES
     'Sedan',
     '2015-03-21',
     54000,
-    'Incroyable'
+    "Gasoline",
+    'Incroyable',
+    'Lille',
+    'https://i.imgur.com/wJOjoDP.jpg'
   ),
   (
     'BMW',
@@ -84,7 +104,10 @@ VALUES
     'SUV',
     '2017-10-12',
     34020,
-    'Incroyable'
+    "Gasoline",
+    'Incroyable',
+    'Paris',
+    'https://i.imgur.com/qEpMrCc.jpg'
   ),
   (
     'Renault',
@@ -92,7 +115,10 @@ VALUES
     'Berline',
     '2019-06-26',
     8070,
-    'Incroyable'
+    "Diesel",
+    'Incroyable',
+    'Lyon',
+    'https://i.imgur.com/pKPbFgb.jpg'
   ),
   (
     'Nissan',
@@ -100,7 +126,10 @@ VALUES
     'Coupe',
     '2020-05-18',
     3091,
-    'Incroyable'
+    "Gasoline",
+    'Incroyable',
+    'Bordeaux',
+    'https://i.imgur.com/bPYe1de.jpg'
   ),
   (
     'Renault',
@@ -108,7 +137,52 @@ VALUES
     'Citadine',
     '2021-01-06',
     11703,
-    'Incroyable'
+    "Electrique",
+    'Incroyable',
+    'Monaco',
+    'https://i.imgur.com/dHTUScz.jpg'
+  ),(
+    'Peugeot',
+    '208',
+    'Sedan',
+    '2016-07-22',
+    2660,
+    "Electrique",
+    'Incroyable',
+    'Lille',
+    'https://www.peugeot.fr/content/dam/peugeot/master/b2c/open/desk/208/Showroom_208_D_Allure_1.jpg?imwidth=1920'
+  ),(
+    'Audi',
+    'Q5',
+    'SUV',
+    '2016-07-22',
+    '45000',
+    "Electrique",
+    'Incroyable',
+    'Lille',
+    'https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/audi-q5-suv-green-2021.png'
+  ),
+  (
+    'Land Rover',
+    'Range Rover',
+    'SUV',
+    '2018-09-01',
+    24031,
+    "Gasoline",
+    'Incroyable',
+    'Lille',
+    'https://i.imgur.com/NSj9Yol.jpg'
+  ),
+  (
+    'Nissan',
+    'Z',
+    'Coupe',
+    '2020-05-18',
+    3091,
+    "Gasoline",
+    'Incroyable',
+    'Lille',
+    'https://i.imgur.com/bPYe1de.jpg'
   );
 
 CREATE TABLE reservation (

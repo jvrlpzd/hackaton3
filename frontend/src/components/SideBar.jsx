@@ -2,10 +2,10 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable */
 import React, { useState } from "react";
+import { useCarContext } from "../context/carContext";
 
 function SideBar() {
   const Brands = [
-    { id: 1, name: "-Brand-" },
     { id: 2, name: "Alfa Romeo" },
     { id: 3, name: "Audi" },
     { id: 4, name: "Bmw" },
@@ -23,7 +23,7 @@ function SideBar() {
     { id: 16, name: "Volskwagen" },
   ];
 
-  const [brand, setBrand] = useState("");
+  const { setFilterCars, filterCars } = useCarContext();
 
   const [type, setType] = useState("");
 
@@ -32,18 +32,24 @@ function SideBar() {
   const [fuel, setFuel] = useState("");
 
   return (
-    <div className="flex justify-center border text-center border-black ">
+    <div
+      className="flex mb-2 md:py-2 justify-center border text-center overflow-x-auto"
+      id="ancreCars"
+    >
       <select
-        onChange={(e) => setBrand(e.target.value)}
-        className=" w-auto md:my-2 md:mx-2 text-center p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+        onChange={(e) => setFilterCars(e.target.value)}
+        className=" w-auto ml-[76px] md:my-2 md:mx-2 md:px-3 text-center p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
-        {Brands.map((brands) => (
+        <option value="" className=" sm:text-sm md:text-lg" key="0">
+          Toutes
+        </option>
+        {Brands.map((brand) => (
           <option
-            value={brands.name}
+            value={brand.name}
             className=" sm:text-sm md:text-lg"
-            key={brands.id}
+            key={brand.id}
           >
-            {brands.name}
+            {brand.name}
           </option>
         ))}
       </select>
@@ -51,7 +57,7 @@ function SideBar() {
         onChange={(e) => setType(e.target.value)}
         className="w-auto p-2.5 md:my-2 md:mx-2 text-gray-500 text-center bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
       >
-        <option>-Type-</option>
+        <option className=" sm:text-sm md:text-lg">-Type-</option>
         <option value="Citadine" className=" sm:text-sm md:text-lg">
           Citadine
         </option>
