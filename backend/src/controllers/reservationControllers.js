@@ -4,7 +4,6 @@ const browse = (req, res) => {
   models.reservation
     .findAll()
     .then(([rows]) => {
-      console.warn(rows);
       res.send(rows);
     })
     .catch((err) => {
