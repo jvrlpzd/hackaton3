@@ -14,7 +14,14 @@ export function CarContextProvider({ children }) {
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values
     <CarContext.Provider
-      value={{ cars, setCars, city, setCity, brand, setBrand }}
+      value={{
+        cars,
+        setCars,
+        city,
+        setCity,
+        brand,
+        setBrand,
+      }}
     >
       {children}
     </CarContext.Provider>
