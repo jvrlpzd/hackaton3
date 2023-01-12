@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import EditVehicles from "./EditVehicles";
 
-function ItemVehicle({ car }) {
+function ItemVehicle({ car, handleDelete }) {
   const [editPostModal, setEditPostModal] = useState(false);
 
   const handleEditPostModal = () => {
@@ -35,8 +35,8 @@ function ItemVehicle({ car }) {
       <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
         {car.city}
       </th>
-      <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-gray-400 text-white">
-        {car.needs_repairing}
+      <th className="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 sm:text-red-400 text-white">
+        {car.needs_repairing ? "YES" : ""}
       </th>
       <div className=" w-28 rounded-md shadow-lg mb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
         <button
@@ -46,7 +46,11 @@ function ItemVehicle({ car }) {
         >
           Modifier
         </button>
-        <button className="text-black p-2 flex" type="button">
+        <button
+          onClick={() => handleDelete()}
+          className="text-black p-2 flex"
+          type="submit"
+        >
           Supprimer
         </button>
       </div>

@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/self-closing-comp */
+import { Navigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import ItemVehicle from "./ItemVehicle";
 
 function AdminHome() {
@@ -20,6 +22,21 @@ function AdminHome() {
    // re-render le composant pour afficher la liste de voitures modifiée
   }; */
 
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:5000/api/vehicles/${id}`)
+      .then((response) => {
+        response.data();
+        Navigate("/adminhome");
+      })
+      .catch((err) => {
+        console.error(err);
+        if (err.response.status === 404) {
+          console.warn("Vehicle deleted with success", { type: "error" });
+        }
+      });
+  };
+
   return (
     <div>
       <div className=" flex-wrap bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-xl">
@@ -29,6 +46,7 @@ function AdminHome() {
               <div className="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
                 <div className="flex w-full items-center">
                   <div className="flex items-center text-3xl text-gray-900 dark:text-white">
+                    <div className="flex justify-between items-center"></div>
                     <img
                       src="https://assets.codepen.io/344846/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1582611188&width=512"
                       className="w-12 mr-4 rounded-full"
@@ -95,7 +113,11 @@ function AdminHome() {
                   </thead>
                   <tbody>
                     {cars.map((car) => (
-                      <ItemVehicle key={car.id} car={car} />
+                      <ItemVehicle
+                        key={car.id}
+                        car={car}
+                        handleDelete={handleDelete}
+                      />
                     ))}
                   </tbody>
                 </table>

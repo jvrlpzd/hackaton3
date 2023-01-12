@@ -7,7 +7,7 @@ class VehiclesManager extends AbstractManager {
 
   insert(vehicle) {
     return this.connection.query(
-      `INSERT INTO ${this.table} (brand, construction_date, mileage, technical_sheet, car_type, model, id)
+      `INSERT INTO ${this.table} (brand, construction_date, mileage, technical_sheet, car_type, model, needs_repairing) WHERE id = ?
     VALUES(?,?,?,?,?,?,?)`,
       [
         vehicle.brand,
@@ -16,6 +16,7 @@ class VehiclesManager extends AbstractManager {
         vehicle.technical_sheet,
         vehicle.car_type,
         vehicle.model,
+        vehicle.needs_repairing,
         vehicle.id,
       ]
     );
@@ -24,7 +25,7 @@ class VehiclesManager extends AbstractManager {
   update(vehicle) {
     return this.connection.query(
       `UPDATE ${this.table} SET brand = ?, construction_date = ?, mileage = ?, mileage = ?,
-       technical_sheet = ?, car_type = ?, model = ? WHERE id = ? `,
+       technical_sheet = ?, car_type = ?, model = ?, needs_repairing = ? WHERE id = ? `,
       [
         vehicle.brand,
         vehicle.construction_date,
@@ -32,6 +33,7 @@ class VehiclesManager extends AbstractManager {
         vehicle.technical_sheet,
         vehicle.car_type,
         vehicle.model,
+        vehicle.needs_repairing,
         vehicle.id,
       ]
     );
