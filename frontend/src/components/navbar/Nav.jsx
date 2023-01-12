@@ -1,17 +1,18 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import iconMenu from "../../assets/menu.png";
 import logo from "../../assets/logo.png";
 import LogOut from "../LogOut";
+import CurrentUserContext from "../../context/userContext";
 
 function Nav() {
+  const { user } = useContext(CurrentUserContext);
   const Links = [
     { name: "MY HISTORY", link: "/history" },
     { name: "MY PROFIL", link: "/profil" },
     { name: "OUR SERVICES", link: "/services" },
-    { name: "SIGN IN", link: "/login" },
   ];
   const [open, setOpen] = useState(false);
   return (
@@ -51,7 +52,18 @@ function Nav() {
               </a>
             </li>
           ))}
-          <LogOut />
+          {user.email ? (
+            <LogOut />
+          ) : (
+            <li className="md:ml-8 text-xl md:my-0 my-7">
+              <a
+                href="/login"
+                className="text-gray-800 hover:text-gray-600 duration-300"
+              >
+                SIGN IN
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </div>
