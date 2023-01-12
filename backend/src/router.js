@@ -22,7 +22,7 @@ router.post(
 );
 
 router.get("/api/reservation", verifyToken, reservationControllers.browse);
-router.get("/api/reservation/:id", reservationControllers.read);
+router.get("/api/reservation/:id", verifyToken, reservationControllers.read);
 router.post("/api/reservation", verifyToken, reservationControllers.add);
 router.put("/api/reservation/:id", verifyToken, reservationControllers.edit);
 router.delete(
@@ -33,13 +33,8 @@ router.delete(
 router.get("/api/vehicles", vehiclesControllers.browse);
 router.get("/api/vehicles/:id", vehiclesControllers.read);
 router.post("/api/vehicles", vehiclesControllers.add);
-router.put("/api/vehicles/:id", verifyToken, vehiclesControllers.edit);
 router.delete("/api/vehicles/:id", vehiclesControllers.destroy);
 
-router.get("/api/users", userControllers.browse);
-router.get("/api/users/:id", userControllers.read);
-router.post("/api/users", hashPassword, userControllers.add);
-router.put("/api/users/:id", hashPassword, verifyToken, userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);
 
 module.exports = router;

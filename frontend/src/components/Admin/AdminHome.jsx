@@ -1,12 +1,20 @@
+/* eslint-disable */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/self-closing-comp */
 import { Navigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AddVehicle from "./AddVehicle";
 import ItemVehicle from "./ItemVehicle";
 
 function AdminHome() {
   const [cars, setCars] = useState([]);
+
+  const [editPostModal, setEditPostModal] = useState(false);
+
+  const handleEditPostModal = () => {
+    setEditPostModal(!editPostModal);
+  };
 
   useEffect(() => {
     fetch("http://localhost:5000/api/vehicles")
@@ -109,6 +117,16 @@ function AdminHome() {
                       <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                         <div className="flex items-center">Needs repairing</div>
                       </td>
+                      <div className=" w-28 rounded-md shadow-lg mb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <button
+                          onClick={() => handleEditPostModal()}
+                          className="text-black p-2 flex"
+                          type="button"
+                        >
+                          Ajouter
+                        </button>
+                      </div>
+                      {editPostModal ? <AddVehicle /> : null}
                     </tr>
                   </thead>
                   <tbody>
