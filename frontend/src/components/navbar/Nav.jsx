@@ -47,8 +47,8 @@ function Nav() {
               </a>
             </li>
           ))}
+          <LogOut />
         </ul>
-        <LogOut />
       </div>
     </div>
   );
