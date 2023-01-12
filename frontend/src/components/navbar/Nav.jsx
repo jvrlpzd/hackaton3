@@ -8,12 +8,8 @@ import LogOut from "../LogOut";
 import CurrentUserContext from "../../context/userContext";
 
 function Nav() {
+  // On récupère la valeur stockée dans le user (qui se trouve dans le userContext) puis on va dire si user.email contient qqch alors un user est login sinon il est logout. Affichage de navbar différent.
   const { user } = useContext(CurrentUserContext);
-  const Links = [
-    { name: "MY HISTORY", link: "/history" },
-    { name: "MY PROFIL", link: "/profil" },
-    { name: "OUR SERVICES", link: "/services" },
-  ];
   const [open, setOpen] = useState(false);
   return (
     <div className="shadow-md w-full z-20">
@@ -42,27 +38,69 @@ function Nav() {
             open ? "top-16 " : "top-[-490px]"
           }`}
         >
-          {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
-              <a
-                href={link.link}
-                className="text-gray-800 hover:text-gray-600 duration-300"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
           {user.email ? (
-            <LogOut />
+            <ul>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <a
+                  href="/"
+                  className="text-gray-800 hover:text-gray-600 duration-300"
+                >
+                  HOME
+                </a>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <a
+                  href="/history"
+                  className="text-gray-800 hover:text-gray-600 duration-300"
+                >
+                  MY HISTORY
+                </a>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <a
+                  href="/profil"
+                  className="text-gray-800 hover:text-gray-600 duration-300"
+                >
+                  MY PROFIL
+                </a>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <a
+                  href="/services"
+                  className="text-gray-800 hover:text-gray-600 duration-300"
+                >
+                  OUR SERVICES
+                </a>
+              </li>
+              <LogOut />
+            </ul>
           ) : (
-            <li className="md:ml-8 text-xl md:my-0 my-7">
-              <a
-                href="/login"
-                className="text-gray-800 hover:text-gray-600 duration-300"
-              >
-                SIGN IN
-              </a>
-            </li>
+            <ul>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <a
+                  href="/"
+                  className="text-gray-800 hover:text-gray-600 duration-300"
+                >
+                  HOME
+                </a>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <a
+                  href="/services"
+                  className="text-gray-800 hover:text-gray-600 duration-300"
+                >
+                  OUR SERVICES
+                </a>
+              </li>
+              <li className="md:ml-8 text-xl md:my-0 my-7">
+                <a
+                  href="/login"
+                  className="text-gray-800 hover:text-gray-600 duration-300"
+                >
+                  SIGN IN
+                </a>
+              </li>
+            </ul>
           )}
         </ul>
       </div>
