@@ -188,7 +188,7 @@ function EditVehicles({ car, setEditPostModal }) {
           <div className="text-center mt-8">
             <button
               type="submit"
-              className="bg-[#15133C] text-white py-2 px-[2.5rem] rounded-[20px] w-2/12 text-md mb-4"
+              className="bg-[#15133C] text-white py-2 px-[2.5rem] rounded-[20px] w-3/12 text-md mb-4"
             >
               Enregistrer
             </button>
