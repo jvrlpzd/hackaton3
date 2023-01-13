@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddVehicle() {
+function AddVehicle({ setEditPostModal }) {
   const navigate = useNavigate();
 
   const [dataCar, setDataCar] = useState({
@@ -16,6 +16,10 @@ function AddVehicle() {
     city: "",
     needs_repairing: "",
   });
+
+  const handleEditPostModal = () => {
+    setEditPostModal(false);
+  };
 
   const onChange = (e) => {
     setDataCar({
@@ -59,19 +63,31 @@ function AddVehicle() {
   return (
     <div>
       <div className="bg-white fixed top-0 left-0 z-10 h-screen w-screen overflow-hidden">
-        <h1 className="text-[40px] text-[#15133C]font-bold text-center pb-8 mt-16">
-          Modifier le vehicule
+        <button
+          onClick={() => {
+            handleEditPostModal();
+          }}
+          type="button"
+        >
+          <img
+            className="ml-7 mt-5 w-7 h-7"
+            src="./src/assets/close.png"
+            alt="Close"
+          />
+        </button>
+        <h1 className="text-[40px] text-[#15133C] font-bold text-center pb-8 mt-8">
+          Add new vehicle
         </h1>
         <div className="flex justify-center mb-4">
           <img
-            className="rounded-full w-36 h-32 border-4 border-violet mr-4"
-            src=""
+            className="rounded-full w-28 h-28 border-4 border-violet mr-4"
+            src="./src/assets/default.png"
             alt="Car"
           />
           <div className="flex flex-col justify-evenly">
             <button
               type="button"
-              className="bg-[#15133C] text-white py-3 px-[2.5rem] rounded-[20px]"
+              className="bg-[#15133C] py-3 px-[2.5rem] rounded-[20px]"
             >
               Changer
             </button>
@@ -79,9 +95,10 @@ function AddVehicle() {
         </div>
         <form
           onSubmit={(e) => onSubmit(e)}
+          method="PUT"
           className="grid grid-cols-2 justify-center  items-center"
         >
-          <label className="flex w-1/2 mx-auto  flex-col text-xl mb-2">
+          <label className="flex w-1/2 mx-auto text-[#15133C] flex-col text-xl mb-2">
             Brand :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -92,9 +109,9 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 flex-col text-xl mb-2">
+          <label className="flex w-1/2 flex-col text-[#15133C] text-xl mb-2">
             Model :
-            <textarea
+            <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
               type="text"
               name="model"
@@ -103,7 +120,7 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
+          <label className="flex w-1/2 mx-auto text-[#15133C] flex-col text-xl mb-2">
             Car Type :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -114,7 +131,7 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 flex-col text-xl mb-2">
+          <label className="flex w-1/2 flex-col text-[#15133C] text-xl mb-2">
             Construction date :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -125,7 +142,7 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
+          <label className="flex w-1/2 mx-auto flex-col text-[#15133C] text-xl mb-2">
             Mileage :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -136,7 +153,7 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 flex-col text-xl mb-2">
+          <label className="flex w-1/2 flex-col text-[#15133C] text-xl mb-2">
             Fuel :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -147,7 +164,7 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 flex-col mx-auto text-xl mb-2">
+          <label className="flex w-1/2 flex-col text-[#15133C] mx-auto text-xl mb-2">
             Tech Sheet :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -158,7 +175,7 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 flex-col text-xl mb-2">
+          <label className="flex w-1/2 flex-col text-[#15133C] text-xl mb-2">
             City :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -169,22 +186,23 @@ function AddVehicle() {
               placeholder=""
             />
           </label>
-          <label className="flex w-1/2 mx-auto flex-col  text-xl mb-2">
+          <label className="flex w-1/2 mx-auto flex-col text-[#15133C] text-xl mb-2">
             Needs repairing :
-            <input
-              className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
-              type="chexbox"
-              name="needs_repairing"
-              value={dataCar.needs_repairing}
-              onChange={onChange}
-              placeholder=""
-            />
+            <div className="flex items-center">
+              <input
+                id="link-checkbox"
+                type="checkbox"
+                value=""
+                onChange={onChange}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+            </div>
           </label>
 
           <div className="text-center mt-8">
             <button
-              type="submit"
-              className="bg-[#15133C] text-white py-2 px-[2.5rem] rounded-[20px] w-2/12 text-md mb-4"
+              type="button"
+              className="bg-[#15133C] text-white py-2 px-[2.5rem] rounded-[20px] w-3/12 text-md mb-4"
             >
               Enregistrer
             </button>

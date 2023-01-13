@@ -126,7 +126,7 @@ function AdminHome() {
                           Ajouter
                         </button>
                       </div>
-                      {editPostModal ? <AddVehicle /> : null}
+                      {editPostModal ? <AddVehicle setEditPostModal={setEditPostModal}/> : null}
                     </tr>
                   </thead>
                   <tbody>

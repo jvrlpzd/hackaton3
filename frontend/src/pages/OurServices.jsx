@@ -16,7 +16,7 @@ function OurServices() {
                 <h2 className="text-center text-3xl">PARIS</h2>
               </div>
               <h4 className="pt-2 pl-2 bold text-xl text-center mt-3">
-                Our agency of Paris welcome's you !
+                Our agency of Paris welcomes you !
               </h4>
               <p className="pt-2 pl-2 text-sm my-3">
                 {" "}
@@ -35,7 +35,7 @@ function OurServices() {
                 <h2 className="text-center text-3xl">LILLE</h2>
               </div>
               <h4 className="pt-2 pl-2 bold text-xl text-center mt-3">
-                Our agency of Lille welcome's you !
+                Our agency of Lille welcomes you !
               </h4>
               <p className="pt-2 pl-2 text-sm my-3">
                 {" "}
@@ -54,7 +54,7 @@ function OurServices() {
                 <h2 className="text-center text-3xl">LYON</h2>
               </div>
               <h4 className="pt-2 pl-2 bold text-xl text-center mt-3">
-                Our agency of Lyon welcome's you !
+                Our agency of Lyon welcomes you !
               </h4>
               <p className="pt-2 pl-2 text-sm my-3">
                 {" "}
@@ -73,7 +73,7 @@ function OurServices() {
                 <h2 className="text-center text-3xl">BORDEAUX</h2>
               </div>
               <h4 className="pt-2 pl-2 bold text-xl text-center mt-3">
-                Our agency of Bordeaux welcome's you !
+                Our agency of Bordeaux welcomes you !
               </h4>
               <p className="pt-2 pl-2 text-sm my-3">
                 {" "}
@@ -92,7 +92,7 @@ function OurServices() {
                 <h2 className="text-center text-3xl">MONACO</h2>
               </div>
               <h4 className="pt-2 pl-2 bold text-xl text-center mt-3">
-                Our agency of Monaco welcome's you !
+                Our agency of Monaco welcomes you !
               </h4>
               <p className="pt-2 pl-2 text-sm my-3">
                 {" "}
@@ -109,7 +109,7 @@ function OurServices() {
           </div>
         </div>
       </div>
-      <h1 className="text-center mt-8 md:mt-16 md:mt-6 text-4xl md:text-6xl z-0 mb-2">
+      <h1 className="text-center mt-8 md:mt-16 text-4xl md:text-6xl z-0 mb-2">
         SECURITY CHARTER
       </h1>
       <SecurityCharter />

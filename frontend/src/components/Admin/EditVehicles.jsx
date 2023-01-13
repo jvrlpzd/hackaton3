@@ -74,12 +74,12 @@ function EditVehicles({ car, setEditPostModal }) {
             alt="Close"
           />
         </button>
-        <h1 className="text-[40px] text-[#15133C]font-bold text-center pb-8 mt-8">
-          Modifier le vehicule
+        <h1 className="text-[40px] text-[#15133C] font-bold text-center pb-8 mt-8">
+          Modify vehicle
         </h1>
         <div className="flex justify-center mb-4">
           <img
-            className="rounded-full w-36 h-32 border-4 border-violet mr-4"
+            className="rounded-full w-36 h-36 border-4 border-violet mr-4"
             src={car.image}
             alt="Car"
           />
@@ -97,7 +97,7 @@ function EditVehicles({ car, setEditPostModal }) {
           method="PUT"
           className="grid grid-cols-2 justify-center  items-center"
         >
-          <label className="flex w-1/2 mx-auto  flex-col text-xl mb-2">
+          <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
             Brand :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -110,7 +110,7 @@ function EditVehicles({ car, setEditPostModal }) {
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
             Model :
-            <textarea
+            <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
               type="text"
               name="model"
@@ -202,7 +202,7 @@ function EditVehicles({ car, setEditPostModal }) {
           <div className="text-center mt-8">
             <button
               type="button"
-              className="bg-[#15133C] text-white py-2 px-[2.5rem] rounded-[20px] w-2/12 text-md mb-4"
+              className="bg-[#15133C] text-white py-2 px-[2.5rem] rounded-[20px] w-3/12 text-md mb-4"
             >
               Enregistrer
             </button>
