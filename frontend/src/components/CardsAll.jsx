@@ -57,7 +57,7 @@ function CardsAll() {
   }, [dateAller, dateRetour]);
 
   return (
-    <div className="w-full grid md:grid-cols-4 gap-8">
+    <div className="w-full grid md:grid-cols-4 gap-8 px-10 py-3">
       {carsOut
         .filter((car) => city === "" || city === car.city)
         .filter((car) => filterCars === "" || filterCars === car.brand)
