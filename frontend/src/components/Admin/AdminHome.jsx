@@ -6,9 +6,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddVehicle from "./AddVehicle";
 import ItemVehicle from "./ItemVehicle";
+import { useCurrentUserContext } from "../../context/userContext";
 
 function AdminHome() {
   const [cars, setCars] = useState([]);
+  const { user } = useCurrentUserContext();
 
   const [editPostModal, setEditPostModal] = useState(false);
 
@@ -67,7 +69,7 @@ function AdminHome() {
                       className="w-12 mr-4 rounded-full"
                       alt="profile"
                     />
-                    ADMIN
+                    {user.role === 'admin' ? "ADMIN" : "MÉCANICIEN"}
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:mt-7 mt-4">
@@ -77,18 +79,23 @@ function AdminHome() {
                   >
                     Vehicles
                   </a>
-                  <a
-                    href="/"
-                    className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5"
-                  >
-                    Users
-                  </a>
-                  <a
-                    href="/"
-                    className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
-                  >
-                    Reservations
-                  </a>
+                  {user.role === "admin" && (
+                    <>
+                      <a
+                        href="/"
+                        className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5"
+                      >
+                        Users
+                      </a>
+                      <a
+                        href="/"
+                        className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
+                      >
+                        Reservations
+                      </a>
+                      
+                    </>
+                  )}
                   <input
                     type="text"
                     onChange={handleSearch}
@@ -131,13 +138,17 @@ function AdminHome() {
                         <div className="flex items-center">Needs repairing</div>
                       </td>
                       <div className=" w-28 rounded-md shadow-lg mb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <button
-                          onClick={() => handleEditPostModal()}
-                          className="text-black p-2 flex"
-                          type="button"
-                        >
-                          Ajouter
-                        </button>
+                        {user.role === "admin" && (
+                          <>
+                            <button
+                              onClick={() => handleEditPostModal()}
+                              className="text-black p-2 flex"
+                              type="button"
+                            >
+                              Ajouter
+                            </button>
+                          </>
+                        )}
                       </div>
                       {editPostModal ? (
                         <AddVehicle setEditPostModal={setEditPostModal} />
@@ -145,7 +156,7 @@ function AdminHome() {
                     </tr>
                   </thead>
                   <tbody>
-                    {cars
+                  {cars
                       .filter((car) => {
                         return car.brand
                           .toLowerCase()

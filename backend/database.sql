@@ -14,7 +14,7 @@ CREATE TABLE user (
   role VARCHAR(20) DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `user` VALUES (1,'Chloe','Bidau','chloebidau@hotmail.fr','0647067609','$argon2id$v=19$m=65536,t=5,p=1$GfoNdBi1vgoc4TxdWBVH6A$ZsVvZmnDMSwW40Lz0tm5W5UwqdJNLCJ+ZrXb9MbMzzo',NULL,'1A2B3C4D5E6F8G0','user'),(2,'Doroteya','Donova','doroteya@donova.fr','0647067610','$argon2id$v=19$m=65536,t=5,p=1$a4wIpQ6TEB/bRivgzEUCag$R3LMRRfdCervop+pWorKoAKK10YViVZJEc7a5c/V3II',NULL,'1A2B3C4D5E6F8G1','admin'),(3,'Javier','Lopez','javier@lopez.fr','0647067611','$argon2id$v=19$m=65536,t=5,p=1$tkZASsFZaPQiUbLTGQ1GdA$LIbQzH9cWe8PDUQksEZ0LxdqCFghw4KcUs3NecMpBSM',NULL,'1A2B3C4D5E6F8G2','user'),(4,'Ryan','Beaujot','ryan@beaujot.fr','0647067612','$argon2id$v=19$m=65536,t=5,p=1$s0khPns0y6GXDtneIJF2sQ$PsD2sn9ZOJWQ52mnoLEfcRHdxDGHesTD6ghxdaIpUf8',NULL,'1A2B3C4D5E6F8G3','user'),(5,'Matthieu','Georges','matthieu@georges.fr','0647067613','$argon2id$v=19$m=65536,t=5,p=1$hinZbfKyRsIenolZB1YM/w$Yxaor2Rm/NwGfh98Zuq/s7LC/b0pblhpIM0NZxXArCM',NULL,'1A2B3C4D5E6F8G4','mecano');
+INSERT INTO `user` VALUES (1,'Chloe','Bidau','chloebidau@hotmail.fr','0647067609','$argon2id$v=19$m=65536,t=5,p=1$GfoNdBi1vgoc4TxdWBVH6A$ZsVvZmnDMSwW40Lz0tm5W5UwqdJNLCJ+ZrXb9MbMzzo',NULL,'1A2B3C4D5E6F8G0','admin'),(2,'Doroteya','Donova','doroteya@donova.fr','0647067610','$argon2id$v=19$m=65536,t=5,p=1$a4wIpQ6TEB/bRivgzEUCag$R3LMRRfdCervop+pWorKoAKK10YViVZJEc7a5c/V3II',NULL,'1A2B3C4D5E6F8G1','mecano'),(3,'Javier','Lopez','javier@lopez.fr','0647067611','$argon2id$v=19$m=65536,t=5,p=1$tkZASsFZaPQiUbLTGQ1GdA$LIbQzH9cWe8PDUQksEZ0LxdqCFghw4KcUs3NecMpBSM',NULL,'1A2B3C4D5E6F8G2','user'),(4,'Ryan','Beaujot','ryan@beaujot.fr','0647067612','$argon2id$v=19$m=65536,t=5,p=1$s0khPns0y6GXDtneIJF2sQ$PsD2sn9ZOJWQ52mnoLEfcRHdxDGHesTD6ghxdaIpUf8',NULL,'1A2B3C4D5E6F8G3','user'),(5,'Matthieu','Georges','matthieu@georges.fr','0647067613','$argon2id$v=19$m=65536,t=5,p=1$hinZbfKyRsIenolZB1YM/w$Yxaor2Rm/NwGfh98Zuq/s7LC/b0pblhpIM0NZxXArCM',NULL,'1A2B3C4D5E6F8G4','user');
 
 CREATE TABLE vehicle (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -31,7 +31,7 @@ CREATE TABLE vehicle (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
-  vehicle (brand, model, car_type, construction_date, mileage, fuel, technical_sheet, city, image)
+  vehicle (brand, model, car_type, construction_date, mileage, fuel, technical_sheet, city, image, needs_repairing)
 VALUES
   (
     'Mercedes-Benz',
@@ -42,7 +42,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/uHqgOuo.jpeg'
+    'https://i.imgur.com/uHqgOuo.jpeg',
+    false
   ),
   (
     'Land Rover',
@@ -53,7 +54,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Paris',
-    'https://i.imgur.com/NSj9Yol.jpg'
+    'https://i.imgur.com/NSj9Yol.jpg',
+    false
   ),
   (
     'Peugeot',
@@ -64,7 +66,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Lyon',
-    'https://i.imgur.com/HgcnLTa.jpg'
+    'https://i.imgur.com/HgcnLTa.jpg',
+    false
   ),
   (
     'Mercedes-Benz',
@@ -75,7 +78,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Bordeaux',
-    'https://i.imgur.com/NeyRSIj.jpg'
+    'https://i.imgur.com/NeyRSIj.jpg',
+    false
   ),
   (
     'Fiat',
@@ -86,7 +90,8 @@ VALUES
     "Diesel",
     'Incroyable',
     'Monaco',
-    'https://i.imgur.com/xtCieEC.jpg'
+    'https://i.imgur.com/xtCieEC.jpg',
+    false
   ),
   (
     'Peugeot',
@@ -97,7 +102,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/wJOjoDP.jpg'
+    'https://i.imgur.com/wJOjoDP.jpg',
+    false
   ),
   (
     'BMW',
@@ -108,7 +114,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Paris',
-    'https://i.imgur.com/qEpMrCc.jpg'
+    'https://i.imgur.com/qEpMrCc.jpg',
+    false
   ),
   (
     'Renault',
@@ -119,7 +126,8 @@ VALUES
     "Diesel",
     'Incroyable',
     'Lyon',
-    'https://i.imgur.com/pKPbFgb.jpg'
+    'https://i.imgur.com/pKPbFgb.jpg',
+    false
   ),
   (
     'Nissan',
@@ -130,7 +138,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Bordeaux',
-    'https://i.imgur.com/bPYe1de.jpg'
+    'https://i.imgur.com/bPYe1de.jpg',
+    false
   ),
   (
     'Renault',
@@ -141,7 +150,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Monaco',
-    'https://i.imgur.com/dHTUScz.jpg'
+    'https://i.imgur.com/dHTUScz.jpg',
+    false
   ),(
     'Peugeot',
     '208',
@@ -151,7 +161,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Lille',
-    'https://www.peugeot.fr/content/dam/peugeot/master/b2c/open/desk/208/Showroom_208_D_Allure_1.jpg?imwidth=1920'
+    'https://www.peugeot.fr/content/dam/peugeot/master/b2c/open/desk/208/Showroom_208_D_Allure_1.jpg?imwidth=1920',
+    false
   ),(
     'Audi',
     'Q5',
@@ -161,7 +172,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Lille',
-    'https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/audi-q5-suv-green-2021.png'
+    'https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/audi-q5-suv-green-2021.png',
+    false
   ),
   (
     'Land Rover',
@@ -172,7 +184,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/NSj9Yol.jpg'
+    'https://i.imgur.com/NSj9Yol.jpg',
+    true
   ),
   (
     'Nissan',
@@ -183,7 +196,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/bPYe1de.jpg'
+    'https://i.imgur.com/bPYe1de.jpg',
+    true
   );
 
 CREATE TABLE reservation (
