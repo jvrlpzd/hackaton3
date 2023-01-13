@@ -36,6 +36,7 @@ class VehiclesManager extends AbstractManager {
         vehicle.city,
         vehicle.fuel,
         vehicle.needs_repairing,
+        vehicle.id,
       ]
     );
   }

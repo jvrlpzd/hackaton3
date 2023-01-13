@@ -21,8 +21,8 @@ function AdminHome() {
       .then((response) => response.json())
       .then((result) => {
         setCars(result);
-      }, []);
-  });
+      });
+  }, []);
 
   /* const deleteFromList = (id) => {
     // recupérer l'index de la voiture a supprimer
@@ -44,6 +44,13 @@ function AdminHome() {
         }
       });
   };
+
+  const [filterSearch, setFilterSearch] = useState("");
+
+  function handleSearch(e) {
+    let value = e.target.value;
+    setFilterSearch(value);
+  }
 
   return (
     <div>
@@ -82,11 +89,17 @@ function AdminHome() {
                   >
                     Reservations
                   </a>
+                  <input
+                    type="text"
+                    onChange={handleSearch}
+                    placeholder="Rechercher..."
+                    class="rounded-full border border-blue-500 pl-4"
+                  />
                 </div>
               </div>
               <div className="sm:p-7 flex flex-wrap">
                 <table className="w-full text-left">
-                  <thead className="text-gray-600 dark:text-gray-100">
+                  <thead className=" text-gray-600   bg-white  dark:text-gray-100">
                     <tr>
                       <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                         <div className="flex items-center">Brand</div>
@@ -126,17 +139,25 @@ function AdminHome() {
                           Ajouter
                         </button>
                       </div>
-                      {editPostModal ? <AddVehicle setEditPostModal={setEditPostModal}/> : null}
+                      {editPostModal ? (
+                        <AddVehicle setEditPostModal={setEditPostModal} />
+                      ) : null}
                     </tr>
                   </thead>
                   <tbody>
-                    {cars.map((car) => (
-                      <ItemVehicle
-                        key={car.id}
-                        car={car}
-                        handleDelete={handleDelete}
-                      />
-                    ))}
+                    {cars
+                      .filter((car) => {
+                        return car.brand
+                          .toLowerCase()
+                          .includes(filterSearch.toLowerCase());
+                      })
+                      .map((car) => (
+                        <ItemVehicle
+                          key={car.id}
+                          car={car}
+                          handleDelete={handleDelete}
+                        />
+                      ))}
                   </tbody>
                 </table>
               </div>
