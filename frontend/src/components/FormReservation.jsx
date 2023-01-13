@@ -1,15 +1,39 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-syntax */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CardsAll from "./CardsAll";
 import SideBar from "./SideBar";
 import { useCarContext } from "../context/carContext";
+import { useCurrentUserContext } from "../context/userContext";
 
 function FormReservation() {
   const [isTrue, setIsTrue] = useState(false);
-  const { setCity, dateAller, setDateAller, dateRetour, setDateRetour } =
-    useCarContext();
+  const {
+    setCity,
+    dateAller,
+    setDateAller,
+    dateRetour,
+    setDateRetour,
+    setCars,
+    bookedReservations,
+    setBookedReservations,
+  } = useCarContext();
+  const { user } = useCurrentUserContext();
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/vehicles")
+      .then((response) => response.json())
+      .then((result) => {
+        setCars(result);
+      });
+
+    fetch("http://localhost:5000/api/reservation")
+      .then((response) => response.json())
+      .then((result) => {
+        setBookedReservations(result);
+      });
+  }, []);
 
   function showSlideBar() {
     setIsTrue(true);
