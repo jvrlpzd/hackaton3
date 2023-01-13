@@ -87,7 +87,7 @@ function AddVehicle({ setEditPostModal }) {
           <div className="flex flex-col justify-evenly">
             <button
               type="button"
-              className="bg-[#15133C] py-3 px-[2.5rem] rounded-[20px]"
+              className="bg-[#15133C] text-white py-3 px-[2.5rem] rounded-[20px]"
             >
               Changer
             </button>

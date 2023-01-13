@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/self-closing-comp */
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddVehicle from "./AddVehicle";
@@ -11,8 +11,10 @@ import { useCurrentUserContext } from "../../context/userContext";
 function AdminHome() {
   const [cars, setCars] = useState([]);
   const { user } = useCurrentUserContext();
+  const [refresh, setRefresh] = useState(false);
 
   const [editPostModal, setEditPostModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleEditPostModal = () => {
     setEditPostModal(!editPostModal);
@@ -24,7 +26,7 @@ function AdminHome() {
       .then((result) => {
         setCars(result);
       });
-  }, []);
+  }, [refresh]);
 
   /* const deleteFromList = (id) => {
     // recupérer l'index de la voiture a supprimer
@@ -37,7 +39,8 @@ function AdminHome() {
       .delete(`http://localhost:5000/api/vehicles/${id}`)
       .then((response) => {
         response.data();
-        Navigate("/adminhome");
+        console.log(response.data);
+        navigate("/adminhome");
       })
       .catch((err) => {
         console.error(err);
@@ -45,6 +48,7 @@ function AdminHome() {
           console.warn("Vehicle deleted with success", { type: "error" });
         }
       });
+      setRefresh(!refresh);
   };
 
   const [filterSearch, setFilterSearch] = useState("");
@@ -69,7 +73,7 @@ function AdminHome() {
                       className="w-12 mr-4 rounded-full"
                       alt="profile"
                     />
-                    {user.role === 'admin' ? "ADMIN" : "MÉCANICIEN"}
+                    {user.role === "admin" ? "ADMIN" : "MÉCANICIEN"}
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:mt-7 mt-4">
@@ -93,7 +97,6 @@ function AdminHome() {
                       >
                         Reservations
                       </a>
-                      
                     </>
                   )}
                   <input
@@ -156,9 +159,13 @@ function AdminHome() {
                     </tr>
                   </thead>
                   <tbody>
-                  {cars
-                      .filter((car) => user.role === 'admin' || (user.role === 'mecano' && car.needs_repairing))
-                      .filter((car) => { 
+                    {cars
+                      .filter(
+                        (car) =>
+                          user.role === "admin" ||
+                          (user.role === "mecano" && car.needs_repairing)
+                      )
+                      .filter((car) => {
                         return car.brand
                           .toLowerCase()
                           .includes(filterSearch.toLowerCase());
