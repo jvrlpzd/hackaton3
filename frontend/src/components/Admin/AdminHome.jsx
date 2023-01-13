@@ -6,9 +6,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddVehicle from "./AddVehicle";
 import ItemVehicle from "./ItemVehicle";
+import { useCurrentUserContext } from "../../context/userContext";
 
 function AdminHome() {
   const [cars, setCars] = useState([]);
+  const { user } = useCurrentUserContext();
 
   const [editPostModal, setEditPostModal] = useState(false);
   const navigate = useNavigate();
@@ -22,8 +24,8 @@ function AdminHome() {
       .then((response) => response.json())
       .then((result) => {
         setCars(result);
-      }, []);
-  });
+      });
+  }, []);
 
   /* const deleteFromList = (id) => {
     // recupérer l'index de la voiture a supprimer
@@ -47,6 +49,13 @@ function AdminHome() {
       });
   };
 
+  const [filterSearch, setFilterSearch] = useState("");
+
+  function handleSearch(e) {
+    let value = e.target.value;
+    setFilterSearch(value);
+  }
+
   return (
     <div>
       <div className=" flex-wrap bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-xl">
@@ -62,7 +71,7 @@ function AdminHome() {
                       className="w-12 mr-4 rounded-full"
                       alt="profile"
                     />
-                    ADMIN
+                    {user.role === 'admin' ? "ADMIN" : "MÉCANICIEN"}
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:mt-7 mt-4">
@@ -72,23 +81,34 @@ function AdminHome() {
                   >
                     Vehicles
                   </a>
-                  <a
-                    href="/"
-                    className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5"
-                  >
-                    Users
-                  </a>
-                  <a
-                    href="/"
-                    className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
-                  >
-                    Reservations
-                  </a>
+                  {user.role === "admin" && (
+                    <>
+                      <a
+                        href="/"
+                        className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5"
+                      >
+                        Users
+                      </a>
+                      <a
+                        href="/"
+                        className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
+                      >
+                        Reservations
+                      </a>
+                      
+                    </>
+                  )}
+                  <input
+                    type="text"
+                    onChange={handleSearch}
+                    placeholder="Rechercher..."
+                    class="rounded-full border border-blue-500 pl-4"
+                  />
                 </div>
               </div>
               <div className="sm:p-7 flex flex-wrap">
                 <table className="w-full text-left">
-                  <thead className="text-gray-600 dark:text-gray-100">
+                  <thead className=" text-gray-600   bg-white  dark:text-gray-100">
                     <tr>
                       <td className="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                         <div className="flex items-center">Brand</div>
@@ -120,13 +140,17 @@ function AdminHome() {
                         <div className="flex items-center">Needs repairing</div>
                       </td>
                       <div className=" w-28 rounded-md shadow-lg mb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <button
-                          onClick={() => handleEditPostModal()}
-                          className="text-black p-2 flex"
-                          type="button"
-                        >
-                          Ajouter
-                        </button>
+                        {user.role === "admin" && (
+                          <>
+                            <button
+                              onClick={() => handleEditPostModal()}
+                              className="text-black p-2 flex"
+                              type="button"
+                            >
+                              Ajouter
+                            </button>
+                          </>
+                        )}
                       </div>
                       {editPostModal ? (
                         <AddVehicle setEditPostModal={setEditPostModal} />
@@ -134,13 +158,19 @@ function AdminHome() {
                     </tr>
                   </thead>
                   <tbody>
-                    {cars.map((car) => (
-                      <ItemVehicle
-                        key={car.id}
-                        car={car}
-                        handleDelete={handleDelete}
-                      />
-                    ))}
+                  {cars
+                      .filter((car) => {
+                        return car.brand
+                          .toLowerCase()
+                          .includes(filterSearch.toLowerCase());
+                      })
+                      .map((car) => (
+                        <ItemVehicle
+                          key={car.id}
+                          car={car}
+                          handleDelete={handleDelete}
+                        />
+                      ))}
                   </tbody>
                 </table>
               </div>

@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import EditVehicles from "./EditVehicles";
+import { useCurrentUserContext } from "../../context/userContext";
 
 function ItemVehicle({ car, handleDelete }) {
   const [editPostModal, setEditPostModal] = useState(false);
+  const { user } = useCurrentUserContext();
 
   const handleEditPostModal = () => {
     setEditPostModal(!editPostModal);
@@ -39,20 +41,33 @@ function ItemVehicle({ car, handleDelete }) {
         {car.needs_repairing ? "YES" : ""}
       </th>
       <div className=" w-28 rounded-md shadow-lg mb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-        <button
-          onClick={() => handleEditPostModal()}
-          className="text-black p-2 flex"
-          type="button"
-        >
-          Modifier
-        </button>
-        <button
-          onClick={() => handleDelete(car.id)}
-          className="text-black p-2 flex"
-          type="submit"
-        >
-          Supprimer
-        </button>
+        {user.role === "admin" && (
+          <>
+            <button
+              onClick={() => handleEditPostModal()}
+              className="text-black p-2 flex"
+              type="button"
+            >
+              Modifier
+            </button>
+            <button
+              onClick={() => handleDelete(car.id)}
+              className="text-black p-2 flex"
+              type="submit"
+            >
+              Supprimer
+            </button>
+          </>
+        )}
+        {user.role === "mecano" && car.needs_repairing && (
+          <button
+            onClick={() => handleEditPostModal()}
+            className="text-black p-2 flex"
+            type="button"
+          >
+            Voiture reparée
+          </button>
+        )}
       </div>
       {editPostModal ? (
         <EditVehicles setEditPostModal={setEditPostModal} car={car} />
