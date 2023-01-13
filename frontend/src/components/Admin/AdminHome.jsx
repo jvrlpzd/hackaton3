@@ -71,7 +71,7 @@ function AdminHome() {
                       className="w-12 mr-4 rounded-full"
                       alt="profile"
                     />
-                    {user.role === 'admin' ? "ADMIN" : "MÉCANICIEN"}
+                    {user.role === "admin" ? "ADMIN" : "MÉCANICIEN"}
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:mt-7 mt-4">
@@ -95,7 +95,6 @@ function AdminHome() {
                       >
                         Reservations
                       </a>
-                      
                     </>
                   )}
                   <input
@@ -158,7 +157,12 @@ function AdminHome() {
                     </tr>
                   </thead>
                   <tbody>
-                  {cars
+                    {cars
+                      .filter(
+                        (car) =>
+                          user.role === "admin" ||
+                          (user.role === "mecano" && car.needs_repairing)
+                      )
                       .filter((car) => {
                         return car.brand
                           .toLowerCase()
