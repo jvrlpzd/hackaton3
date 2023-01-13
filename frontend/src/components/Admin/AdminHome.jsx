@@ -156,13 +156,19 @@ function AdminHome() {
                     </tr>
                   </thead>
                   <tbody>
-                    {cars.map((car) => (
-                      <ItemVehicle
-                        key={car.id}
-                        car={car}
-                        handleDelete={handleDelete}
-                      />
-                    ))}
+                  {cars
+                      .filter((car) => {
+                        return car.brand
+                          .toLowerCase()
+                          .includes(filterSearch.toLowerCase());
+                      })
+                      .map((car) => (
+                        <ItemVehicle
+                          key={car.id}
+                          car={car}
+                          handleDelete={handleDelete}
+                        />
+                      ))}
                   </tbody>
                 </table>
               </div>
