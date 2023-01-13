@@ -11,6 +11,7 @@ import { useCurrentUserContext } from "../../context/userContext";
 function AdminHome() {
   const [cars, setCars] = useState([]);
   const { user } = useCurrentUserContext();
+  const [refresh, setRefresh] = useState(false);
 
   const [editPostModal, setEditPostModal] = useState(false);
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function AdminHome() {
       .then((result) => {
         setCars(result);
       });
-  }, []);
+  }, [refresh]);
 
   /* const deleteFromList = (id) => {
     // recupérer l'index de la voiture a supprimer
@@ -47,6 +48,7 @@ function AdminHome() {
           console.warn("Vehicle deleted with success", { type: "error" });
         }
       });
+      setRefresh(!refresh);
   };
 
   const [filterSearch, setFilterSearch] = useState("");
