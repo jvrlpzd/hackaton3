@@ -28,7 +28,7 @@ function SideBar() {
 
   return (
     <div
-      className="flex mb-2 md:py-2 justify-center border text-center overflow-x-auto"
+      className="flex mb-2 md:pt-9 md:pb-1 justify-center border text-center overflow-x-auto"
       id="ancreCars"
     >
       <select

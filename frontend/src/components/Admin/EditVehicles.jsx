@@ -4,15 +4,7 @@ import { Navigate } from "react-router-dom";
 
 function EditVehicles({ car, setEditPostModal }) {
   const [dataCar, setDataCar] = useState({
-    brand: "",
-    model: "",
-    car_type: "",
-    construction_date: "",
-    mileage: "",
-    fuel: "",
-    technical_sheet: "",
-    city: "",
-    needs_repairing: "",
+    ...car,
   });
 
   const handleEditPostModal = () => {
@@ -28,29 +20,31 @@ function EditVehicles({ car, setEditPostModal }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
 
-    const body = JSON.stringify(dataCar);
-
-    const requestOptions = {
-      method: "PUT",
-      headers: myHeaders,
-      body,
-    };
+    console.warn("Repairing? ", dataCar.needs_repairing);
     if (
-      dataCar.brand ||
-      dataCar.model ||
-      dataCar.car_type ||
-      dataCar.construction_date ||
-      dataCar.mileage ||
-      dataCar.fuel ||
-      dataCar.technical_sheet ||
-      dataCar.city ||
-      dataCar.needs_repairing
+      dataCar.id &&
+      dataCar.brand &&
+      dataCar.construction_date &&
+      dataCar.mileage &&
+      dataCar.technical_sheet &&
+      dataCar.car_type &&
+      dataCar.model &&
+      dataCar.city &&
+      dataCar.fuel
     ) {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      const body = JSON.stringify(dataCar);
+
+      const requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body,
+      };
       // On appelle le back. Si tous les middleware placé sur la route ci-dessous, je pourrais être renvoyé à la route login
-      fetch("http://localhost:5000/api/vehicles/:id", requestOptions)
+      fetch(`http://localhost:5000/api/vehicles/${dataCar.id}`, requestOptions)
         .then((response) => response.text())
         .then(() => {
           Navigate("/adminhome");
@@ -74,12 +68,12 @@ function EditVehicles({ car, setEditPostModal }) {
             alt="Close"
           />
         </button>
-        <h1 className="text-[40px] text-[#15133C]font-bold text-center pb-8 mt-8">
-          Modifier le vehicule
+        <h1 className="text-[40px] text-[#15133C] font-bold text-center pb-8 mt-8">
+          Modify vehicle
         </h1>
         <div className="flex justify-center mb-4">
           <img
-            className="rounded-full w-36 h-32 border-4 border-violet mr-4"
+            className="rounded-full w-36 h-36 border-4 border-violet mr-4"
             src={car.image}
             alt="Car"
           />
@@ -93,11 +87,11 @@ function EditVehicles({ car, setEditPostModal }) {
           </div>
         </div>
         <form
-          onSubmit={(e) => onSubmit(e)}
+          onSubmit={onSubmit}
           method="PUT"
           className="grid grid-cols-2 justify-center  items-center"
         >
-          <label className="flex w-1/2 mx-auto  flex-col text-xl mb-2">
+          <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
             Brand :
             <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
@@ -105,18 +99,16 @@ function EditVehicles({ car, setEditPostModal }) {
               name="brand"
               value={dataCar.brand}
               onChange={onChange}
-              placeholder={car.brand}
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
             Model :
-            <textarea
+            <input
               className="w-80 rounded-md border border-primary py-2 pl-4 text-lg placeholder-black"
               type="text"
               name="model"
               value={dataCar.model}
               onChange={onChange}
-              placeholder={car.model}
             />
           </label>
           <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
@@ -127,7 +119,6 @@ function EditVehicles({ car, setEditPostModal }) {
               name="car_type"
               value={dataCar.car_type}
               onChange={onChange}
-              placeholder={car.car_type}
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
@@ -138,7 +129,6 @@ function EditVehicles({ car, setEditPostModal }) {
               name="construction_date"
               value={dataCar.construction_date}
               onChange={onChange}
-              placeholder={car.construction_date}
             />
           </label>
           <label className="flex w-1/2 mx-auto flex-col text-xl mb-2">
@@ -149,7 +139,6 @@ function EditVehicles({ car, setEditPostModal }) {
               name="mileage"
               value={dataCar.mileage}
               onChange={onChange}
-              placeholder={car.mileage}
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
@@ -160,7 +149,6 @@ function EditVehicles({ car, setEditPostModal }) {
               name="fuel"
               value={dataCar.fuel}
               onChange={onChange}
-              placeholder={car.fuel}
             />
           </label>
           <label className="flex w-1/2 flex-col mx-auto text-xl mb-2">
@@ -171,7 +159,6 @@ function EditVehicles({ car, setEditPostModal }) {
               name="technical_sheet"
               value={dataCar.technical_sheet}
               onChange={onChange}
-              placeholder={car.technical_sheet}
             />
           </label>
           <label className="flex w-1/2 flex-col text-xl mb-2">
@@ -182,7 +169,6 @@ function EditVehicles({ car, setEditPostModal }) {
               name="city"
               value={dataCar.city}
               onChange={onChange}
-              placeholder={car.city}
             />
           </label>
           <label className="flex w-1/2 mx-auto flex-col  text-xl mb-2">
@@ -201,7 +187,7 @@ function EditVehicles({ car, setEditPostModal }) {
 
           <div className="text-center mt-8">
             <button
-              type="button"
+              type="submit"
               className="bg-[#15133C] text-white py-2 px-[2.5rem] rounded-[20px] w-2/12 text-md mb-4"
             >
               Enregistrer
