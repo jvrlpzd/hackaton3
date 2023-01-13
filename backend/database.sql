@@ -31,7 +31,7 @@ CREATE TABLE vehicle (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 INSERT INTO
-  vehicle (brand, model, car_type, construction_date, mileage, fuel, technical_sheet, city, image)
+  vehicle (brand, model, car_type, construction_date, mileage, fuel, technical_sheet, city, image, needs_repairing)
 VALUES
   (
     'Mercedes-Benz',
@@ -42,7 +42,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/uHqgOuo.jpeg'
+    'https://i.imgur.com/uHqgOuo.jpeg',
+    false
   ),
   (
     'Land Rover',
@@ -53,7 +54,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Paris',
-    'https://i.imgur.com/NSj9Yol.jpg'
+    'https://i.imgur.com/NSj9Yol.jpg',
+    false
   ),
   (
     'Peugeot',
@@ -64,7 +66,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Lyon',
-    'https://i.imgur.com/HgcnLTa.jpg'
+    'https://i.imgur.com/HgcnLTa.jpg',
+    false
   ),
   (
     'Mercedes-Benz',
@@ -75,7 +78,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Bordeaux',
-    'https://i.imgur.com/NeyRSIj.jpg'
+    'https://i.imgur.com/NeyRSIj.jpg',
+    false
   ),
   (
     'Fiat',
@@ -86,7 +90,8 @@ VALUES
     "Diesel",
     'Incroyable',
     'Monaco',
-    'https://i.imgur.com/xtCieEC.jpg'
+    'https://i.imgur.com/xtCieEC.jpg',
+    false
   ),
   (
     'Peugeot',
@@ -97,7 +102,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/wJOjoDP.jpg'
+    'https://i.imgur.com/wJOjoDP.jpg',
+    false
   ),
   (
     'BMW',
@@ -108,7 +114,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Paris',
-    'https://i.imgur.com/qEpMrCc.jpg'
+    'https://i.imgur.com/qEpMrCc.jpg',
+    false
   ),
   (
     'Renault',
@@ -119,7 +126,8 @@ VALUES
     "Diesel",
     'Incroyable',
     'Lyon',
-    'https://i.imgur.com/pKPbFgb.jpg'
+    'https://i.imgur.com/pKPbFgb.jpg',
+    false
   ),
   (
     'Nissan',
@@ -130,7 +138,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Bordeaux',
-    'https://i.imgur.com/bPYe1de.jpg'
+    'https://i.imgur.com/bPYe1de.jpg',
+    false
   ),
   (
     'Renault',
@@ -141,7 +150,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Monaco',
-    'https://i.imgur.com/dHTUScz.jpg'
+    'https://i.imgur.com/dHTUScz.jpg',
+    false
   ),(
     'Peugeot',
     '208',
@@ -151,7 +161,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Lille',
-    'https://www.peugeot.fr/content/dam/peugeot/master/b2c/open/desk/208/Showroom_208_D_Allure_1.jpg?imwidth=1920'
+    'https://www.peugeot.fr/content/dam/peugeot/master/b2c/open/desk/208/Showroom_208_D_Allure_1.jpg?imwidth=1920',
+    false
   ),(
     'Audi',
     'Q5',
@@ -161,7 +172,8 @@ VALUES
     "Electrique",
     'Incroyable',
     'Lille',
-    'https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/audi-q5-suv-green-2021.png'
+    'https://www.sixt.fr/fileadmin/files/global/user_upload/fleet/png/350x200/audi-q5-suv-green-2021.png',
+    false
   ),
   (
     'Land Rover',
@@ -172,7 +184,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/NSj9Yol.jpg'
+    'https://i.imgur.com/NSj9Yol.jpg',
+    true
   ),
   (
     'Nissan',
@@ -183,7 +196,8 @@ VALUES
     "Gasoline",
     'Incroyable',
     'Lille',
-    'https://i.imgur.com/bPYe1de.jpg'
+    'https://i.imgur.com/bPYe1de.jpg',
+    true
   );
 
 CREATE TABLE reservation (

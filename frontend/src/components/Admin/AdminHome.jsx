@@ -62,7 +62,7 @@ function AdminHome() {
                       className="w-12 mr-4 rounded-full"
                       alt="profile"
                     />
-                    ADMIN
+                    {user.role === 'admin' ? "ADMIN" : "MÉCANICIEN"}
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 sm:mt-7 mt-4">
@@ -140,7 +140,9 @@ function AdminHome() {
                     </tr>
                   </thead>
                   <tbody>
-                    {cars.map((car) => (
+                    {cars
+                    .filter((car) => user.role === 'admin' || (user.role === 'mecano' && car.needs_repairing))
+                    .map((car) => (
                       <ItemVehicle
                         key={car.id}
                         car={car}
