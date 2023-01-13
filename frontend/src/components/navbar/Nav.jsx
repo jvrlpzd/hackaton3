@@ -32,7 +32,6 @@ function Nav() {
         >
           <img className="h-8" src={iconMenu} alt="" />
         </button>
-
         <ul
           className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-20 left-0  w-full md:w-auto md:pl-0 pl-9 transition-all duration-300 ease-in ${
             open ? "top-16 " : "top-[-490px]"

@@ -46,7 +46,11 @@ function Connexion() {
         .then((result) => {
           setUser(result.user);
           setToken(result.token);
-          navigate("/");
+          navigate(
+            result.user.role === "admin" || result.user.role === "mecano"
+              ? "/adminhome"
+              : "/"
+          );
         })
 
         .catch(console.error);
