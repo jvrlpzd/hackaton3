@@ -157,7 +157,8 @@ function AdminHome() {
                   </thead>
                   <tbody>
                   {cars
-                      .filter((car) => {
+                      .filter((car) => user.role === 'admin' || (user.role === 'mecano' && car.needs_repairing))
+                      .filter((car) => { 
                         return car.brand
                           .toLowerCase()
                           .includes(filterSearch.toLowerCase());
