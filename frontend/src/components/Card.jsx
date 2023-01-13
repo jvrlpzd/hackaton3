@@ -19,19 +19,19 @@ function Card({ car }) {
         {car.brand} {car.model}
       </h2>
       <div className="flex justify-center w-full">
-        <img src={car.image} alt="car" className="h-56 w-full" />
+        <img src={car.image} alt="car" className="h-56 w-full object-cover" />
       </div>
       <div className="grid overflow-hidden grid-cols-3 grid-rows-2 gap-5">
         <div className="flex flex-row items-center justify-center my-6">
           <img
-            className="h-6 w-6 mr-4"
+            className="h-6 w-6 mr-2 ml-4"
             src={car.fuel === "Electrique" ? `${cable}` : `${essence}`}
             alt="card"
           />
           <p>{car.fuel}</p>
         </div>
         <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={valises} alt="card" />
+          <img className="h-6 w-6 mr-2" src={valises} alt="card" />
           <p>
             {car.car_type === "Coupe"
               ? "2 suitcases"
@@ -41,12 +41,12 @@ function Card({ car }) {
           </p>
         </div>
         <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={clim} alt="card" />
+          <img className="h-6 w-6 mr-2" src={clim} alt="card" />
           <p>Yes</p>
         </div>
 
         <div className="flex flex-row items-center justify-center my-6">
-          <img className="h-6 w-6 mr-4" src={passagers} alt="card" />
+          <img className="h-6 w-6 mr-2" src={passagers} alt="card" />
           <p>
             {car.car_type === "Coupe"
               ? "2 seats"
@@ -73,7 +73,7 @@ function Card({ car }) {
       <div className="flex justify-center">
         <button
           type="button"
-          className="hover:shadow-form rounded-md bg-[#15133C] mb-3 py-3 px-8 text-center text-base font-semibold text-white outline-none hover:shadow hover:bg-[#FFFFFF] hover:text-[#15133C] hover:border hover:border-[#15133C]"
+          className="hover:shadow-form rounded-md bg-[#15133C] mb-3 py-3 px-8 text-center text-base font-semibold text-white outline-none hover:shadow hover:bg-[#FFFFFF] hover:text-[#15133C] hover:border hover:border-[#15133C] transition duration-700 ease-in-out"
         >
           <Link to={`/reservation/${car.id}`}>Reserver</Link>
         </button>
