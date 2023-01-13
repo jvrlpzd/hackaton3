@@ -47,7 +47,7 @@ function ItemVehicle({ car, handleDelete }) {
           Modifier
         </button>
         <button
-          onClick={() => handleDelete()}
+          onClick={() => handleDelete(car.id)}
           className="text-black p-2 flex"
           type="submit"
         >

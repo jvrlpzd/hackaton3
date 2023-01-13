@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/self-closing-comp */
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddVehicle from "./AddVehicle";
@@ -11,6 +11,7 @@ function AdminHome() {
   const [cars, setCars] = useState([]);
 
   const [editPostModal, setEditPostModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleEditPostModal = () => {
     setEditPostModal(!editPostModal);
@@ -35,7 +36,8 @@ function AdminHome() {
       .delete(`http://localhost:5000/api/vehicles/${id}`)
       .then((response) => {
         response.data();
-        Navigate("/adminhome");
+        console.log(response.data);
+        navigate("/adminhome");
       })
       .catch((err) => {
         console.error(err);
@@ -126,7 +128,9 @@ function AdminHome() {
                           Ajouter
                         </button>
                       </div>
-                      {editPostModal ? <AddVehicle setEditPostModal={setEditPostModal}/> : null}
+                      {editPostModal ? (
+                        <AddVehicle setEditPostModal={setEditPostModal} />
+                      ) : null}
                     </tr>
                   </thead>
                   <tbody>
