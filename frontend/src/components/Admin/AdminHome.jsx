@@ -6,9 +6,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AddVehicle from "./AddVehicle";
 import ItemVehicle from "./ItemVehicle";
+import { useCurrentUserContext } from "../../context/userContext";
 
 function AdminHome() {
   const [cars, setCars] = useState([]);
+  const { user } = useCurrentUserContext();
 
   const [editPostModal, setEditPostModal] = useState(false);
 
@@ -70,18 +72,22 @@ function AdminHome() {
                   >
                     Vehicles
                   </a>
-                  <a
-                    href="/"
-                    className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5"
-                  >
-                    Users
-                  </a>
-                  <a
-                    href="/"
-                    className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
-                  >
-                    Reservations
-                  </a>
+                  {user.role === "admin" && (
+                    <>
+                      <a
+                        href="/"
+                        className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5"
+                      >
+                        Users
+                      </a>
+                      <a
+                        href="/"
+                        className="px-3 border-b-2 border-transparent text-gray-600 dark:text-gray-400 pb-1.5 sm:block hidden"
+                      >
+                        Reservations
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
               <div className="sm:p-7 flex flex-wrap">
@@ -118,13 +124,17 @@ function AdminHome() {
                         <div className="flex items-center">Needs repairing</div>
                       </td>
                       <div className=" w-28 rounded-md shadow-lg mb-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <button
-                          onClick={() => handleEditPostModal()}
-                          className="text-black p-2 flex"
-                          type="button"
-                        >
-                          Ajouter
-                        </button>
+                        {user.role === "admin" && (
+                          <>
+                            <button
+                              onClick={() => handleEditPostModal()}
+                              className="text-black p-2 flex"
+                              type="button"
+                            >
+                              Ajouter
+                            </button>
+                          </>
+                        )}
                       </div>
                       {editPostModal ? <AddVehicle /> : null}
                     </tr>
