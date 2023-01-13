@@ -8,6 +8,7 @@ import clim from "../assets/HistoryPage/clim.png";
 import essence from "../assets/HistoryPage/essence.png";
 import passagers from "../assets/HistoryPage/passagers.png";
 import doors from "../assets/HistoryPage/portes.png";
+import maps from "../assets/HistoryPage/maps.svg";
 
 function Reservation() {
   const params = useParams();
@@ -20,7 +21,7 @@ function Reservation() {
   }, [params]);
 
   return (
-    <div className="grid grid-cols-3 mx-1/3 justify-center">
+    <div className="ml-10 mt-6 justify-center w-96">
       <div className="w-full mb-10  shadow-sm">
         <h2 className="text-xl md:text-2xl font-bold p-2 bg-white shadow-md rounded-tl-lg rounded-tr-lg h-17 flex justify-center items-center">
           {reservedCar.brand} {reservedCar.model}
@@ -66,9 +67,18 @@ function Reservation() {
           </div>
           <div className="flex flex-row items-center justify-center my-6">
             <img className="h-6 w-6 mr-4" src={doors} alt="card" />
-            <p>{reservedCar.car_type === "Coupe" ? "2 doors" : "5 doors"}</p>
+            <p>
+              {reservedCar.car_type === "Coupe" ||
+              reservedCar.car_type === "Sedan" ||
+              reservedCar.car_type === "Citadine"
+                ? "2 doors"
+                : "5 doors"}
+            </p>
           </div>
-          <p>{reservedCar.city}</p>
+          <div className="flex flex-row items-center justify-center my-6">
+            <img className="h-6 w-6 mr-4" src={maps} alt="card" />
+            <p>{reservedCar.city}</p>
+          </div>
         </div>
         <div className="flex justify-center">
           <button
