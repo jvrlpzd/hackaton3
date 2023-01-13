@@ -20,8 +20,8 @@ function Reservation() {
   }, [params]);
 
   return (
-    <div className="grid grid-cols-3 mx-1/3 justify-center">
-      <div className="w-full mb-10  shadow-sm">
+    <div className="flex justify-center">
+      <div className="w-1/3 my-10  shadow-sm">
         <h2 className="text-xl md:text-2xl font-bold p-2 bg-white shadow-md rounded-tl-lg rounded-tr-lg h-17 flex justify-center items-center">
           {reservedCar.brand} {reservedCar.model}
         </h2>
